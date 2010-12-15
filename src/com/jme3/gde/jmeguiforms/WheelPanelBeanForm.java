@@ -14,6 +14,7 @@ import com.jme3.gde.jmeguiforms.event.EventFactory;
 import com.jme3.gde.jmeguiforms.event.WheelPanelListener;
 import java.util.ArrayList;
 import java.util.List;
+import org.jdesktop.swingx.JXTextField;
 import org.jdesktop.swingx.JXTitledPanel;
 
 /**
@@ -42,6 +43,14 @@ public class WheelPanelBeanForm extends JXTitledPanel {
         }
     }
 
+    public WheelPanelBeanForm setWheelName(String name) {
+        ((JXTextField)getLeftDecoration()).setText(name);
+        return this;
+    }
+
+    public String getWheelName() {
+        return ((JXTextField)getLeftDecoration()).getText();
+    }
     /** This method is called from within the constructor to
      * initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is

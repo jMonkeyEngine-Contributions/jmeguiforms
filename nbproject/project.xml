@@ -61,6 +61,7 @@
             <public-packages>
                 <package>com.jme3.gde.jmeguiforms</package>
                 <package>com.jme3.gde.jmeguiforms.event</package>
+                <package>com.jme3.gde.jmeguiforms.util</package>
             </public-packages>
         </data>
     </configuration>

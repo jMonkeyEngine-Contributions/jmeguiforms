@@ -22,13 +22,11 @@ public class OffScenePanelBeanForm extends OffScenePanel {
     /** Creates new form OffScenePanelBeanForm */
     public OffScenePanelBeanForm() {
         this(320,320);
-        initComponents();
     }
 
     /** Creates new form OffScenePanelBeanForm */
     public OffScenePanelBeanForm(int width, int height) {
         super(width, height);
-        initComponents();
     }
     /** This method is called from within the constructor to
      * initialize the form.
