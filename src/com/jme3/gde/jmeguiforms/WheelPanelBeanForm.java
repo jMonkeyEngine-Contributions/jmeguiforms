@@ -12,6 +12,7 @@ package com.jme3.gde.jmeguiforms;
 
 import com.jme3.gde.jmeguiforms.event.EventFactory;
 import com.jme3.gde.jmeguiforms.event.WheelPanelListener;
+import com.jme3.math.Vector3f;
 import java.util.ArrayList;
 import java.util.List;
 import org.jdesktop.swingx.JXTextField;
@@ -28,29 +29,89 @@ public class WheelPanelBeanForm extends JXTitledPanel {
     /** Creates new form WheelPanelBeanForm */
     public WheelPanelBeanForm() {
         initComponents();
+        listeners = new ArrayList<WheelPanelListener>();
     }
 
     public void addWheelPanelListener(WheelPanelListener listener) {
-        if (listeners == null) {
-            listeners = new ArrayList<WheelPanelListener>();
-        }
         listeners.add(listener);
     }
 
     public void removeWheelPanelListener(WheelPanelListener listener) {
-        if (listeners == null) {
-            listeners.remove(listener);
-        }
+        listeners.remove(listener);
     }
 
     public WheelPanelBeanForm setWheelName(String name) {
-        ((JXTextField)getLeftDecoration()).setText(name);
+        ((JXTextField) getLeftDecoration()).setText(name);
         return this;
     }
 
     public String getWheelName() {
-        return ((JXTextField)getLeftDecoration()).getText();
+        return ((JXTextField) getLeftDecoration()).getText();
     }
+
+    public void setConnectionPoint(Vector3f connectionPoint) {
+        jSpinner1.setValue(connectionPoint.x);
+        jSpinner2.setValue(connectionPoint.y);
+        jSpinner3.setValue(connectionPoint.z);
+    }
+
+    public Vector3f getConnectionPoint() {
+        return new Vector3f(
+                (Float) jSpinner1.getValue(),
+                (Float) jSpinner2.getValue(),
+                (Float) jSpinner3.getValue());
+    }
+
+    public void setDirection(Vector3f direction) {
+        jSpinner4.setValue(direction.x);
+        jSpinner5.setValue(direction.y);
+        jSpinner6.setValue(direction.z);
+    }
+
+    public Vector3f getDirection() {
+        return new Vector3f(
+                (Float) jSpinner4.getValue(),
+                (Float) jSpinner5.getValue(),
+                (Float) jSpinner6.getValue());
+    }
+
+    public void setAxle(Vector3f axle) {
+        jSpinner7.setValue(axle.x);
+        jSpinner8.setValue(axle.y);
+        jSpinner9.setValue(axle.z);
+    }
+
+    public Vector3f getAxle() {
+        return new Vector3f(
+                (Float) jSpinner7.getValue(),
+                (Float) jSpinner8.getValue(),
+                (Float) jSpinner9.getValue());
+    }
+
+    public void setRestLength(float restLength) {
+        jSpinner10.setValue(restLength);
+    }
+
+    public float getRestLength() {
+        return (Float) jSpinner10.getValue();
+    }
+
+    public void setRadius(float radius) {
+        jSpinner11.setValue(radius);
+    }
+
+    public float getRadius() {
+        return (Float) jSpinner11.getValue();
+    }
+
+    public void setFrontWheel(boolean frontWheel) {
+        jXComboBox1.setSelectedItem(Boolean.toString(frontWheel));
+    }
+
+    public boolean isFrontWheel() {
+        return Boolean.parseBoolean((String) jXComboBox1.getSelectedItem());
+    }
+
     /** This method is called from within the constructor to
      * initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is
@@ -88,7 +149,7 @@ public class WheelPanelBeanForm extends JXTitledPanel {
 
         closeButton.setText(org.openide.util.NbBundle.getMessage(WheelPanelBeanForm.class, "WheelPanelBeanForm.closeButton.text")); // NOI18N
         closeButton.setContentAreaFilled(false);
-        closeButton.setFont(new java.awt.Font("Lao UI", 1, 11)); // NOI18N
+        closeButton.setFont(new java.awt.Font("Lao UI", 1, 11));
         closeButton.setRequestFocusEnabled(false);
         closeButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -105,13 +166,14 @@ public class WheelPanelBeanForm extends JXTitledPanel {
 
         setLeftDecoration(nameTextField);
         setRightDecoration(closeButton);
-        getContentContainer().setLayout(new java.awt.GridLayout());
+        getContentContainer().setLayout(new java.awt.GridLayout(1, 0));
 
         jXTaskPane1.setCollapsed(true);
         jXTaskPane1.setTitle(org.openide.util.NbBundle.getMessage(WheelPanelBeanForm.class, "WheelPanelBeanForm.jXTaskPane1.title")); // NOI18N
-        jXTaskPane1.getContentPane().setLayout(new java.awt.GridLayout());
+        jXTaskPane1.getContentPane().setLayout(new java.awt.GridLayout(1, 0));
 
-        jSpinner1.setModel(new javax.swing.SpinnerNumberModel(0, -100000, 100000, 0.001));
+        jSpinner1.setModel(new javax.swing.SpinnerNumberModel(Float.valueOf(0.0f), null, null, Float.valueOf(1.0f)));
+        jSpinner1.setValue(1d);
         jSpinner1.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
                 jSpinner1StateChanged(evt);
@@ -119,7 +181,8 @@ public class WheelPanelBeanForm extends JXTitledPanel {
         });
         jXTaskPane1.getContentPane().add(jSpinner1);
 
-        jSpinner2.setModel(new javax.swing.SpinnerNumberModel(0, -100000, 100000, 0.001));
+        jSpinner2.setModel(new javax.swing.SpinnerNumberModel(Float.valueOf(0.0f), null, null, Float.valueOf(1.0f)));
+        jSpinner2.setValue(1d);
         jSpinner2.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
                 jSpinner2StateChanged(evt);
@@ -127,7 +190,8 @@ public class WheelPanelBeanForm extends JXTitledPanel {
         });
         jXTaskPane1.getContentPane().add(jSpinner2);
 
-        jSpinner3.setModel(new javax.swing.SpinnerNumberModel(0, -100000, 100000, 0.001));
+        jSpinner3.setModel(new javax.swing.SpinnerNumberModel(Float.valueOf(0.0f), null, null, Float.valueOf(1.0f)));
+        jSpinner3.setValue(1d);
         jSpinner3.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
                 jSpinner3StateChanged(evt);
@@ -139,9 +203,10 @@ public class WheelPanelBeanForm extends JXTitledPanel {
 
         jXTaskPane2.setCollapsed(true);
         jXTaskPane2.setTitle(org.openide.util.NbBundle.getMessage(WheelPanelBeanForm.class, "WheelPanelBeanForm.jXTaskPane2.title")); // NOI18N
-        jXTaskPane2.getContentPane().setLayout(new java.awt.GridLayout());
+        jXTaskPane2.getContentPane().setLayout(new java.awt.GridLayout(1, 0));
 
-        jSpinner4.setModel(new javax.swing.SpinnerNumberModel(0, -100000, 100000, 0.001));
+        jSpinner4.setModel(new javax.swing.SpinnerNumberModel(Float.valueOf(0.0f), null, null, Float.valueOf(1.0f)));
+        jSpinner4.setValue(1d);
         jSpinner4.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
                 jSpinner4StateChanged(evt);
@@ -149,7 +214,8 @@ public class WheelPanelBeanForm extends JXTitledPanel {
         });
         jXTaskPane2.getContentPane().add(jSpinner4);
 
-        jSpinner5.setModel(new javax.swing.SpinnerNumberModel(0, -100000, 100000, 0.001));
+        jSpinner5.setModel(new javax.swing.SpinnerNumberModel(Float.valueOf(0.0f), null, null, Float.valueOf(1.0f)));
+        jSpinner5.setValue(1d);
         jSpinner5.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
                 jSpinner5StateChanged(evt);
@@ -157,7 +223,8 @@ public class WheelPanelBeanForm extends JXTitledPanel {
         });
         jXTaskPane2.getContentPane().add(jSpinner5);
 
-        jSpinner6.setModel(new javax.swing.SpinnerNumberModel(0, -100000, 100000, 0.001));
+        jSpinner6.setModel(new javax.swing.SpinnerNumberModel(Float.valueOf(0.0f), null, null, Float.valueOf(1.0f)));
+        jSpinner6.setValue(1d);
         jSpinner6.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
                 jSpinner6StateChanged(evt);
@@ -169,9 +236,10 @@ public class WheelPanelBeanForm extends JXTitledPanel {
 
         jXTaskPane3.setCollapsed(true);
         jXTaskPane3.setTitle(org.openide.util.NbBundle.getMessage(WheelPanelBeanForm.class, "WheelPanelBeanForm.jXTaskPane3.title")); // NOI18N
-        jXTaskPane3.getContentPane().setLayout(new java.awt.GridLayout());
+        jXTaskPane3.getContentPane().setLayout(new java.awt.GridLayout(1, 0));
 
-        jSpinner7.setModel(new javax.swing.SpinnerNumberModel(0, -100000, 100000, 0.001));
+        jSpinner7.setModel(new javax.swing.SpinnerNumberModel(Float.valueOf(0.0f), null, null, Float.valueOf(1.0f)));
+        jSpinner7.setValue(1d);
         jSpinner7.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
                 jSpinner7StateChanged(evt);
@@ -179,7 +247,8 @@ public class WheelPanelBeanForm extends JXTitledPanel {
         });
         jXTaskPane3.getContentPane().add(jSpinner7);
 
-        jSpinner8.setModel(new javax.swing.SpinnerNumberModel(0, -100000, 100000, 0.001));
+        jSpinner8.setModel(new javax.swing.SpinnerNumberModel(Float.valueOf(0.0f), null, null, Float.valueOf(1.0f)));
+        jSpinner8.setValue(1d);
         jSpinner8.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
                 jSpinner8StateChanged(evt);
@@ -187,7 +256,8 @@ public class WheelPanelBeanForm extends JXTitledPanel {
         });
         jXTaskPane3.getContentPane().add(jSpinner8);
 
-        jSpinner9.setModel(new javax.swing.SpinnerNumberModel(0, -100000, 100000, 0.001));
+        jSpinner9.setModel(new javax.swing.SpinnerNumberModel(Float.valueOf(0.0f), null, null, Float.valueOf(1.0f)));
+        jSpinner9.setValue(1d);
         jSpinner9.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
                 jSpinner9StateChanged(evt);
@@ -199,9 +269,10 @@ public class WheelPanelBeanForm extends JXTitledPanel {
 
         jXTaskPane4.setCollapsed(true);
         jXTaskPane4.setTitle(org.openide.util.NbBundle.getMessage(WheelPanelBeanForm.class, "WheelPanelBeanForm.jXTaskPane4.title")); // NOI18N
-        jXTaskPane4.getContentPane().setLayout(new java.awt.GridLayout());
+        jXTaskPane4.getContentPane().setLayout(new java.awt.GridLayout(1, 0));
 
-        jSpinner10.setModel(new javax.swing.SpinnerNumberModel(0, -100000, 100000, 0.001));
+        jSpinner10.setModel(new javax.swing.SpinnerNumberModel(Float.valueOf(0.0f), null, null, Float.valueOf(1.0f)));
+        jSpinner10.setValue(0d);
         jSpinner10.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
                 jSpinner10StateChanged(evt);
@@ -213,9 +284,10 @@ public class WheelPanelBeanForm extends JXTitledPanel {
 
         jXTaskPane5.setCollapsed(true);
         jXTaskPane5.setTitle(org.openide.util.NbBundle.getMessage(WheelPanelBeanForm.class, "WheelPanelBeanForm.jXTaskPane5.title")); // NOI18N
-        jXTaskPane5.getContentPane().setLayout(new java.awt.GridLayout());
+        jXTaskPane5.getContentPane().setLayout(new java.awt.GridLayout(1, 0));
 
-        jSpinner11.setModel(new javax.swing.SpinnerNumberModel(0, -100000, 100000, 0.001));
+        jSpinner11.setModel(new javax.swing.SpinnerNumberModel(Float.valueOf(0.0f), null, null, Float.valueOf(1.0f)));
+        jSpinner11.setValue(0d);
         jSpinner11.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
                 jSpinner11StateChanged(evt);
@@ -227,7 +299,7 @@ public class WheelPanelBeanForm extends JXTitledPanel {
 
         jXTaskPane6.setCollapsed(true);
         jXTaskPane6.setTitle(org.openide.util.NbBundle.getMessage(WheelPanelBeanForm.class, "WheelPanelBeanForm.jXTaskPane6.title")); // NOI18N
-        jXTaskPane6.getContentPane().setLayout(new java.awt.GridLayout());
+        jXTaskPane6.getContentPane().setLayout(new java.awt.GridLayout(1, 0));
 
         jXComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "True", "False" }));
         jXComboBox1.addActionListener(new java.awt.event.ActionListener() {
