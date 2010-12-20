@@ -31,7 +31,7 @@ public class WheelPanelBeanFormBeanInfo extends SimpleBeanInfo {
     private static final int PROPERTY_alpha = 4;
     private static final int PROPERTY_ancestorListeners = 5;
     private static final int PROPERTY_autoscrolls = 6;
-    private static final int PROPERTY_axle = 7;
+    private static final int PROPERTY_axleValue = 7;
     private static final int PROPERTY_background = 8;
     private static final int PROPERTY_backgroundPainter = 9;
     private static final int PROPERTY_backgroundSet = 10;
@@ -45,13 +45,13 @@ public class WheelPanelBeanFormBeanInfo extends SimpleBeanInfo {
     private static final int PROPERTY_componentOrientation = 18;
     private static final int PROPERTY_componentPopupMenu = 19;
     private static final int PROPERTY_components = 20;
-    private static final int PROPERTY_connectionPoint = 21;
+    private static final int PROPERTY_connectionPointValue = 21;
     private static final int PROPERTY_containerListeners = 22;
     private static final int PROPERTY_contentContainer = 23;
     private static final int PROPERTY_cursor = 24;
     private static final int PROPERTY_cursorSet = 25;
     private static final int PROPERTY_debugGraphicsOptions = 26;
-    private static final int PROPERTY_direction = 27;
+    private static final int PROPERTY_directionValue = 27;
     private static final int PROPERTY_displayable = 28;
     private static final int PROPERTY_doubleBuffered = 29;
     private static final int PROPERTY_dropTarget = 30;
@@ -72,7 +72,7 @@ public class WheelPanelBeanFormBeanInfo extends SimpleBeanInfo {
     private static final int PROPERTY_fontSet = 45;
     private static final int PROPERTY_foreground = 46;
     private static final int PROPERTY_foregroundSet = 47;
-    private static final int PROPERTY_frontWheel = 48;
+    private static final int PROPERTY_frontWheelValue = 48;
     private static final int PROPERTY_graphics = 49;
     private static final int PROPERTY_graphicsConfiguration = 50;
     private static final int PROPERTY_height = 51;
@@ -104,56 +104,57 @@ public class WheelPanelBeanFormBeanInfo extends SimpleBeanInfo {
     private static final int PROPERTY_mousePosition = 77;
     private static final int PROPERTY_mouseWheelListeners = 78;
     private static final int PROPERTY_name = 79;
-    private static final int PROPERTY_nextFocusableComponent = 80;
-    private static final int PROPERTY_opaque = 81;
-    private static final int PROPERTY_optimizedDrawingEnabled = 82;
-    private static final int PROPERTY_paintBorderInsets = 83;
-    private static final int PROPERTY_paintingForPrint = 84;
-    private static final int PROPERTY_paintingTile = 85;
-    private static final int PROPERTY_parent = 86;
-    private static final int PROPERTY_peer = 87;
-    private static final int PROPERTY_preferredScrollableViewportSize = 88;
-    private static final int PROPERTY_preferredSize = 89;
-    private static final int PROPERTY_preferredSizeSet = 90;
-    private static final int PROPERTY_propertyChangeListeners = 91;
-    private static final int PROPERTY_radius = 92;
-    private static final int PROPERTY_registeredKeyStrokes = 93;
-    private static final int PROPERTY_requestFocusEnabled = 94;
-    private static final int PROPERTY_restLength = 95;
-    private static final int PROPERTY_rightDecoration = 96;
-    private static final int PROPERTY_rootPane = 97;
-    private static final int PROPERTY_scrollableHeightHint = 98;
-    private static final int PROPERTY_scrollableTracksViewportHeight = 99;
-    private static final int PROPERTY_scrollableTracksViewportWidth = 100;
-    private static final int PROPERTY_scrollableWidthHint = 101;
-    private static final int PROPERTY_showing = 102;
-    private static final int PROPERTY_size = 103;
-    private static final int PROPERTY_title = 104;
-    private static final int PROPERTY_titleFont = 105;
-    private static final int PROPERTY_titleForeground = 106;
-    private static final int PROPERTY_titlePainter = 107;
-    private static final int PROPERTY_toolkit = 108;
-    private static final int PROPERTY_toolTipText = 109;
-    private static final int PROPERTY_topLevelAncestor = 110;
-    private static final int PROPERTY_transferHandler = 111;
-    private static final int PROPERTY_treeLock = 112;
-    private static final int PROPERTY_UI = 113;
-    private static final int PROPERTY_UIClassID = 114;
-    private static final int PROPERTY_valid = 115;
-    private static final int PROPERTY_validateRoot = 116;
-    private static final int PROPERTY_verifyInputWhenFocusTarget = 117;
-    private static final int PROPERTY_vetoableChangeListeners = 118;
-    private static final int PROPERTY_visible = 119;
-    private static final int PROPERTY_visibleRect = 120;
-    private static final int PROPERTY_wheelName = 121;
-    private static final int PROPERTY_width = 122;
-    private static final int PROPERTY_x = 123;
-    private static final int PROPERTY_y = 124;
+    private static final int PROPERTY_nameValue = 80;
+    private static final int PROPERTY_nextFocusableComponent = 81;
+    private static final int PROPERTY_opaque = 82;
+    private static final int PROPERTY_optimizedDrawingEnabled = 83;
+    private static final int PROPERTY_paintBorderInsets = 84;
+    private static final int PROPERTY_paintingForPrint = 85;
+    private static final int PROPERTY_paintingTile = 86;
+    private static final int PROPERTY_parent = 87;
+    private static final int PROPERTY_peer = 88;
+    private static final int PROPERTY_preferredScrollableViewportSize = 89;
+    private static final int PROPERTY_preferredSize = 90;
+    private static final int PROPERTY_preferredSizeSet = 91;
+    private static final int PROPERTY_propertyChangeListeners = 92;
+    private static final int PROPERTY_radiusValue = 93;
+    private static final int PROPERTY_registeredKeyStrokes = 94;
+    private static final int PROPERTY_requestFocusEnabled = 95;
+    private static final int PROPERTY_restLengthValue = 96;
+    private static final int PROPERTY_rightDecoration = 97;
+    private static final int PROPERTY_rootPane = 98;
+    private static final int PROPERTY_scrollableHeightHint = 99;
+    private static final int PROPERTY_scrollableTracksViewportHeight = 100;
+    private static final int PROPERTY_scrollableTracksViewportWidth = 101;
+    private static final int PROPERTY_scrollableWidthHint = 102;
+    private static final int PROPERTY_showing = 103;
+    private static final int PROPERTY_size = 104;
+    private static final int PROPERTY_spatialValue = 105;
+    private static final int PROPERTY_title = 106;
+    private static final int PROPERTY_titleFont = 107;
+    private static final int PROPERTY_titleForeground = 108;
+    private static final int PROPERTY_titlePainter = 109;
+    private static final int PROPERTY_toolkit = 110;
+    private static final int PROPERTY_toolTipText = 111;
+    private static final int PROPERTY_topLevelAncestor = 112;
+    private static final int PROPERTY_transferHandler = 113;
+    private static final int PROPERTY_treeLock = 114;
+    private static final int PROPERTY_UI = 115;
+    private static final int PROPERTY_UIClassID = 116;
+    private static final int PROPERTY_valid = 117;
+    private static final int PROPERTY_validateRoot = 118;
+    private static final int PROPERTY_verifyInputWhenFocusTarget = 119;
+    private static final int PROPERTY_vetoableChangeListeners = 120;
+    private static final int PROPERTY_visible = 121;
+    private static final int PROPERTY_visibleRect = 122;
+    private static final int PROPERTY_width = 123;
+    private static final int PROPERTY_x = 124;
+    private static final int PROPERTY_y = 125;
 
     // Property array 
     /*lazy PropertyDescriptor*/
     private static PropertyDescriptor[] getPdescriptor(){
-        PropertyDescriptor[] properties = new PropertyDescriptor[125];
+        PropertyDescriptor[] properties = new PropertyDescriptor[126];
     
         try {
             properties[PROPERTY_accessibleContext] = new PropertyDescriptor ( "accessibleContext", com.jme3.gde.jmeguiforms.WheelPanelBeanForm.class, "getAccessibleContext", null ); // NOI18N
@@ -163,7 +164,7 @@ public class WheelPanelBeanFormBeanInfo extends SimpleBeanInfo {
             properties[PROPERTY_alpha] = new PropertyDescriptor ( "alpha", com.jme3.gde.jmeguiforms.WheelPanelBeanForm.class, "getAlpha", "setAlpha" ); // NOI18N
             properties[PROPERTY_ancestorListeners] = new PropertyDescriptor ( "ancestorListeners", com.jme3.gde.jmeguiforms.WheelPanelBeanForm.class, "getAncestorListeners", null ); // NOI18N
             properties[PROPERTY_autoscrolls] = new PropertyDescriptor ( "autoscrolls", com.jme3.gde.jmeguiforms.WheelPanelBeanForm.class, "getAutoscrolls", "setAutoscrolls" ); // NOI18N
-            properties[PROPERTY_axle] = new PropertyDescriptor ( "axle", com.jme3.gde.jmeguiforms.WheelPanelBeanForm.class, "getAxle", "setAxle" ); // NOI18N
+            properties[PROPERTY_axleValue] = new PropertyDescriptor ( "axleValue", com.jme3.gde.jmeguiforms.WheelPanelBeanForm.class, "getAxleValue", "setAxleValue" ); // NOI18N
             properties[PROPERTY_background] = new PropertyDescriptor ( "background", com.jme3.gde.jmeguiforms.WheelPanelBeanForm.class, "getBackground", "setBackground" ); // NOI18N
             properties[PROPERTY_backgroundPainter] = new PropertyDescriptor ( "backgroundPainter", com.jme3.gde.jmeguiforms.WheelPanelBeanForm.class, "getBackgroundPainter", "setBackgroundPainter" ); // NOI18N
             properties[PROPERTY_backgroundSet] = new PropertyDescriptor ( "backgroundSet", com.jme3.gde.jmeguiforms.WheelPanelBeanForm.class, "isBackgroundSet", null ); // NOI18N
@@ -177,13 +178,13 @@ public class WheelPanelBeanFormBeanInfo extends SimpleBeanInfo {
             properties[PROPERTY_componentOrientation] = new PropertyDescriptor ( "componentOrientation", com.jme3.gde.jmeguiforms.WheelPanelBeanForm.class, "getComponentOrientation", "setComponentOrientation" ); // NOI18N
             properties[PROPERTY_componentPopupMenu] = new PropertyDescriptor ( "componentPopupMenu", com.jme3.gde.jmeguiforms.WheelPanelBeanForm.class, "getComponentPopupMenu", "setComponentPopupMenu" ); // NOI18N
             properties[PROPERTY_components] = new PropertyDescriptor ( "components", com.jme3.gde.jmeguiforms.WheelPanelBeanForm.class, "getComponents", null ); // NOI18N
-            properties[PROPERTY_connectionPoint] = new PropertyDescriptor ( "connectionPoint", com.jme3.gde.jmeguiforms.WheelPanelBeanForm.class, "getConnectionPoint", "setConnectionPoint" ); // NOI18N
+            properties[PROPERTY_connectionPointValue] = new PropertyDescriptor ( "connectionPointValue", com.jme3.gde.jmeguiforms.WheelPanelBeanForm.class, "getConnectionPointValue", "setConnectionPointValue" ); // NOI18N
             properties[PROPERTY_containerListeners] = new PropertyDescriptor ( "containerListeners", com.jme3.gde.jmeguiforms.WheelPanelBeanForm.class, "getContainerListeners", null ); // NOI18N
             properties[PROPERTY_contentContainer] = new PropertyDescriptor ( "contentContainer", com.jme3.gde.jmeguiforms.WheelPanelBeanForm.class, "getContentContainer", "setContentContainer" ); // NOI18N
             properties[PROPERTY_cursor] = new PropertyDescriptor ( "cursor", com.jme3.gde.jmeguiforms.WheelPanelBeanForm.class, "getCursor", "setCursor" ); // NOI18N
             properties[PROPERTY_cursorSet] = new PropertyDescriptor ( "cursorSet", com.jme3.gde.jmeguiforms.WheelPanelBeanForm.class, "isCursorSet", null ); // NOI18N
             properties[PROPERTY_debugGraphicsOptions] = new PropertyDescriptor ( "debugGraphicsOptions", com.jme3.gde.jmeguiforms.WheelPanelBeanForm.class, "getDebugGraphicsOptions", "setDebugGraphicsOptions" ); // NOI18N
-            properties[PROPERTY_direction] = new PropertyDescriptor ( "direction", com.jme3.gde.jmeguiforms.WheelPanelBeanForm.class, "getDirection", "setDirection" ); // NOI18N
+            properties[PROPERTY_directionValue] = new PropertyDescriptor ( "directionValue", com.jme3.gde.jmeguiforms.WheelPanelBeanForm.class, "getDirectionValue", "setDirectionValue" ); // NOI18N
             properties[PROPERTY_displayable] = new PropertyDescriptor ( "displayable", com.jme3.gde.jmeguiforms.WheelPanelBeanForm.class, "isDisplayable", null ); // NOI18N
             properties[PROPERTY_doubleBuffered] = new PropertyDescriptor ( "doubleBuffered", com.jme3.gde.jmeguiforms.WheelPanelBeanForm.class, "isDoubleBuffered", "setDoubleBuffered" ); // NOI18N
             properties[PROPERTY_dropTarget] = new PropertyDescriptor ( "dropTarget", com.jme3.gde.jmeguiforms.WheelPanelBeanForm.class, "getDropTarget", "setDropTarget" ); // NOI18N
@@ -204,7 +205,7 @@ public class WheelPanelBeanFormBeanInfo extends SimpleBeanInfo {
             properties[PROPERTY_fontSet] = new PropertyDescriptor ( "fontSet", com.jme3.gde.jmeguiforms.WheelPanelBeanForm.class, "isFontSet", null ); // NOI18N
             properties[PROPERTY_foreground] = new PropertyDescriptor ( "foreground", com.jme3.gde.jmeguiforms.WheelPanelBeanForm.class, "getForeground", "setForeground" ); // NOI18N
             properties[PROPERTY_foregroundSet] = new PropertyDescriptor ( "foregroundSet", com.jme3.gde.jmeguiforms.WheelPanelBeanForm.class, "isForegroundSet", null ); // NOI18N
-            properties[PROPERTY_frontWheel] = new PropertyDescriptor ( "frontWheel", com.jme3.gde.jmeguiforms.WheelPanelBeanForm.class, "isFrontWheel", "setFrontWheel" ); // NOI18N
+            properties[PROPERTY_frontWheelValue] = new PropertyDescriptor ( "frontWheelValue", com.jme3.gde.jmeguiforms.WheelPanelBeanForm.class, "isFrontWheelValue", "setFrontWheelValue" ); // NOI18N
             properties[PROPERTY_graphics] = new PropertyDescriptor ( "graphics", com.jme3.gde.jmeguiforms.WheelPanelBeanForm.class, "getGraphics", null ); // NOI18N
             properties[PROPERTY_graphicsConfiguration] = new PropertyDescriptor ( "graphicsConfiguration", com.jme3.gde.jmeguiforms.WheelPanelBeanForm.class, "getGraphicsConfiguration", null ); // NOI18N
             properties[PROPERTY_height] = new PropertyDescriptor ( "height", com.jme3.gde.jmeguiforms.WheelPanelBeanForm.class, "getHeight", null ); // NOI18N
@@ -236,6 +237,7 @@ public class WheelPanelBeanFormBeanInfo extends SimpleBeanInfo {
             properties[PROPERTY_mousePosition] = new PropertyDescriptor ( "mousePosition", com.jme3.gde.jmeguiforms.WheelPanelBeanForm.class, "getMousePosition", null ); // NOI18N
             properties[PROPERTY_mouseWheelListeners] = new PropertyDescriptor ( "mouseWheelListeners", com.jme3.gde.jmeguiforms.WheelPanelBeanForm.class, "getMouseWheelListeners", null ); // NOI18N
             properties[PROPERTY_name] = new PropertyDescriptor ( "name", com.jme3.gde.jmeguiforms.WheelPanelBeanForm.class, "getName", "setName" ); // NOI18N
+            properties[PROPERTY_nameValue] = new PropertyDescriptor ( "nameValue", com.jme3.gde.jmeguiforms.WheelPanelBeanForm.class, "getNameValue", null ); // NOI18N
             properties[PROPERTY_nextFocusableComponent] = new PropertyDescriptor ( "nextFocusableComponent", com.jme3.gde.jmeguiforms.WheelPanelBeanForm.class, "getNextFocusableComponent", "setNextFocusableComponent" ); // NOI18N
             properties[PROPERTY_opaque] = new PropertyDescriptor ( "opaque", com.jme3.gde.jmeguiforms.WheelPanelBeanForm.class, "isOpaque", "setOpaque" ); // NOI18N
             properties[PROPERTY_optimizedDrawingEnabled] = new PropertyDescriptor ( "optimizedDrawingEnabled", com.jme3.gde.jmeguiforms.WheelPanelBeanForm.class, "isOptimizedDrawingEnabled", null ); // NOI18N
@@ -248,10 +250,10 @@ public class WheelPanelBeanFormBeanInfo extends SimpleBeanInfo {
             properties[PROPERTY_preferredSize] = new PropertyDescriptor ( "preferredSize", com.jme3.gde.jmeguiforms.WheelPanelBeanForm.class, "getPreferredSize", "setPreferredSize" ); // NOI18N
             properties[PROPERTY_preferredSizeSet] = new PropertyDescriptor ( "preferredSizeSet", com.jme3.gde.jmeguiforms.WheelPanelBeanForm.class, "isPreferredSizeSet", null ); // NOI18N
             properties[PROPERTY_propertyChangeListeners] = new PropertyDescriptor ( "propertyChangeListeners", com.jme3.gde.jmeguiforms.WheelPanelBeanForm.class, "getPropertyChangeListeners", null ); // NOI18N
-            properties[PROPERTY_radius] = new PropertyDescriptor ( "radius", com.jme3.gde.jmeguiforms.WheelPanelBeanForm.class, "getRadius", "setRadius" ); // NOI18N
+            properties[PROPERTY_radiusValue] = new PropertyDescriptor ( "radiusValue", com.jme3.gde.jmeguiforms.WheelPanelBeanForm.class, "getRadiusValue", "setRadiusValue" ); // NOI18N
             properties[PROPERTY_registeredKeyStrokes] = new PropertyDescriptor ( "registeredKeyStrokes", com.jme3.gde.jmeguiforms.WheelPanelBeanForm.class, "getRegisteredKeyStrokes", null ); // NOI18N
             properties[PROPERTY_requestFocusEnabled] = new PropertyDescriptor ( "requestFocusEnabled", com.jme3.gde.jmeguiforms.WheelPanelBeanForm.class, "isRequestFocusEnabled", "setRequestFocusEnabled" ); // NOI18N
-            properties[PROPERTY_restLength] = new PropertyDescriptor ( "restLength", com.jme3.gde.jmeguiforms.WheelPanelBeanForm.class, "getRestLength", "setRestLength" ); // NOI18N
+            properties[PROPERTY_restLengthValue] = new PropertyDescriptor ( "restLengthValue", com.jme3.gde.jmeguiforms.WheelPanelBeanForm.class, "getRestLengthValue", "setRestLengthValue" ); // NOI18N
             properties[PROPERTY_rightDecoration] = new PropertyDescriptor ( "rightDecoration", com.jme3.gde.jmeguiforms.WheelPanelBeanForm.class, "getRightDecoration", "setRightDecoration" ); // NOI18N
             properties[PROPERTY_rootPane] = new PropertyDescriptor ( "rootPane", com.jme3.gde.jmeguiforms.WheelPanelBeanForm.class, "getRootPane", null ); // NOI18N
             properties[PROPERTY_scrollableHeightHint] = new PropertyDescriptor ( "scrollableHeightHint", com.jme3.gde.jmeguiforms.WheelPanelBeanForm.class, null, "setScrollableHeightHint" ); // NOI18N
@@ -260,6 +262,7 @@ public class WheelPanelBeanFormBeanInfo extends SimpleBeanInfo {
             properties[PROPERTY_scrollableWidthHint] = new PropertyDescriptor ( "scrollableWidthHint", com.jme3.gde.jmeguiforms.WheelPanelBeanForm.class, null, "setScrollableWidthHint" ); // NOI18N
             properties[PROPERTY_showing] = new PropertyDescriptor ( "showing", com.jme3.gde.jmeguiforms.WheelPanelBeanForm.class, "isShowing", null ); // NOI18N
             properties[PROPERTY_size] = new PropertyDescriptor ( "size", com.jme3.gde.jmeguiforms.WheelPanelBeanForm.class, "getSize", "setSize" ); // NOI18N
+            properties[PROPERTY_spatialValue] = new PropertyDescriptor ( "spatialValue", com.jme3.gde.jmeguiforms.WheelPanelBeanForm.class, "getSpatialValue", "setSpatialValue" ); // NOI18N
             properties[PROPERTY_title] = new PropertyDescriptor ( "title", com.jme3.gde.jmeguiforms.WheelPanelBeanForm.class, "getTitle", "setTitle" ); // NOI18N
             properties[PROPERTY_titleFont] = new PropertyDescriptor ( "titleFont", com.jme3.gde.jmeguiforms.WheelPanelBeanForm.class, "getTitleFont", "setTitleFont" ); // NOI18N
             properties[PROPERTY_titleForeground] = new PropertyDescriptor ( "titleForeground", com.jme3.gde.jmeguiforms.WheelPanelBeanForm.class, "getTitleForeground", "setTitleForeground" ); // NOI18N
@@ -277,7 +280,6 @@ public class WheelPanelBeanFormBeanInfo extends SimpleBeanInfo {
             properties[PROPERTY_vetoableChangeListeners] = new PropertyDescriptor ( "vetoableChangeListeners", com.jme3.gde.jmeguiforms.WheelPanelBeanForm.class, "getVetoableChangeListeners", null ); // NOI18N
             properties[PROPERTY_visible] = new PropertyDescriptor ( "visible", com.jme3.gde.jmeguiforms.WheelPanelBeanForm.class, "isVisible", "setVisible" ); // NOI18N
             properties[PROPERTY_visibleRect] = new PropertyDescriptor ( "visibleRect", com.jme3.gde.jmeguiforms.WheelPanelBeanForm.class, "getVisibleRect", null ); // NOI18N
-            properties[PROPERTY_wheelName] = new PropertyDescriptor ( "wheelName", com.jme3.gde.jmeguiforms.WheelPanelBeanForm.class, "getWheelName", null ); // NOI18N
             properties[PROPERTY_width] = new PropertyDescriptor ( "width", com.jme3.gde.jmeguiforms.WheelPanelBeanForm.class, "getWidth", null ); // NOI18N
             properties[PROPERTY_x] = new PropertyDescriptor ( "x", com.jme3.gde.jmeguiforms.WheelPanelBeanForm.class, "getX", null ); // NOI18N
             properties[PROPERTY_y] = new PropertyDescriptor ( "y", com.jme3.gde.jmeguiforms.WheelPanelBeanForm.class, "getY", null ); // NOI18N
@@ -469,8 +471,8 @@ public class WheelPanelBeanFormBeanInfo extends SimpleBeanInfo {
     private static final int METHOD_setBounds132 = 132;
     private static final int METHOD_setComponentZOrder133 = 133;
     private static final int METHOD_setDefaultLocale134 = 134;
-    private static final int METHOD_setUI135 = 135;
-    private static final int METHOD_setWheelName136 = 136;
+    private static final int METHOD_setNameValue135 = 135;
+    private static final int METHOD_setUI136 = 136;
     private static final int METHOD_show137 = 137;
     private static final int METHOD_show138 = 138;
     private static final int METHOD_size139 = 139;
@@ -760,10 +762,10 @@ public class WheelPanelBeanFormBeanInfo extends SimpleBeanInfo {
             methods[METHOD_setComponentZOrder133].setDisplayName ( "" );
             methods[METHOD_setDefaultLocale134] = new MethodDescriptor(javax.swing.JComponent.class.getMethod("setDefaultLocale", new Class[] {java.util.Locale.class})); // NOI18N
             methods[METHOD_setDefaultLocale134].setDisplayName ( "" );
-            methods[METHOD_setUI135] = new MethodDescriptor(javax.swing.JPanel.class.getMethod("setUI", new Class[] {javax.swing.plaf.PanelUI.class})); // NOI18N
-            methods[METHOD_setUI135].setDisplayName ( "" );
-            methods[METHOD_setWheelName136] = new MethodDescriptor(com.jme3.gde.jmeguiforms.WheelPanelBeanForm.class.getMethod("setWheelName", new Class[] {java.lang.String.class})); // NOI18N
-            methods[METHOD_setWheelName136].setDisplayName ( "" );
+            methods[METHOD_setNameValue135] = new MethodDescriptor(com.jme3.gde.jmeguiforms.WheelPanelBeanForm.class.getMethod("setNameValue", new Class[] {java.lang.String.class})); // NOI18N
+            methods[METHOD_setNameValue135].setDisplayName ( "" );
+            methods[METHOD_setUI136] = new MethodDescriptor(javax.swing.JPanel.class.getMethod("setUI", new Class[] {javax.swing.plaf.PanelUI.class})); // NOI18N
+            methods[METHOD_setUI136].setDisplayName ( "" );
             methods[METHOD_show137] = new MethodDescriptor(java.awt.Component.class.getMethod("show", new Class[] {})); // NOI18N
             methods[METHOD_show137].setDisplayName ( "" );
             methods[METHOD_show138] = new MethodDescriptor(java.awt.Component.class.getMethod("show", new Class[] {boolean.class})); // NOI18N

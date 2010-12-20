@@ -8,10 +8,12 @@
  *
  * Created on 10/12/2010, 17:28:42
  */
-
 package com.jme3.gde.jmeguiforms;
 
 import com.jme3.gde.core.scene.OffScenePanel;
+import com.jme3.gde.core.scene.SceneApplication;
+import com.jme3.gde.core.scene.processors.WireProcessor;
+import java.util.concurrent.Callable;
 
 /**
  *
@@ -19,15 +21,59 @@ import com.jme3.gde.core.scene.OffScenePanel;
  */
 public class OffScenePanelBeanForm extends OffScenePanel {
 
+    private WireProcessor processor;
+
     /** Creates new form OffScenePanelBeanForm */
     public OffScenePanelBeanForm() {
-        this(320,320);
+        this(320, 320);
     }
 
     /** Creates new form OffScenePanelBeanForm */
     public OffScenePanelBeanForm(int width, int height) {
         super(width, height);
+        initComponents();
     }
+
+    public void enableWireFrame() {
+        SceneApplication.getApplication().enqueue(new Callable<Object>() {
+
+            public Object call() throws Exception {
+                doEnableWireFrame();
+                return null;
+            }
+        });
+    }
+
+    public void doEnableWireFrame() {
+        getViewPort().addProcessor(getWireProcessor());
+    }
+
+    public void disableWireFrame() {
+        SceneApplication.getApplication().enqueue(new Callable<Object>() {
+
+            public Object call() throws Exception {
+                doDisableWireFrame();
+                return null;
+            }
+        });
+    }
+
+    public void doDisableWireFrame() {
+        getViewPort().removeProcessor(getWireProcessor());
+    }
+
+    public WireProcessor getWireProcessor() {
+        if (processor == null) {
+            processor = new WireProcessor(SceneApplication.getApplication().getAssetManager());
+        }
+        return processor;
+    }
+
+    public void cleanup() {
+        super.cleanup();
+        processor.cleanup();
+    }
+
     /** This method is called from within the constructor to
      * initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is
@@ -52,9 +98,6 @@ public class OffScenePanelBeanForm extends OffScenePanel {
             .addGap(0, 320, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
-
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     // End of variables declaration//GEN-END:variables
-
 }
