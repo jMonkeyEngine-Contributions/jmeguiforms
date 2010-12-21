@@ -18,12 +18,12 @@ import org.jdesktop.swingx.JXPanel;
  *
  * @author Glauco
  */
-public class PreviewModelBeanForm extends JXPanel {
+public class PreviewModelPanel extends JXPanel {
 
     private boolean wireframe;
 
     /** Creates new form PreviewModelBeanForm */
-    public PreviewModelBeanForm() {
+    public PreviewModelPanel() {
         initComponents();
     }
 
@@ -59,14 +59,16 @@ public class PreviewModelBeanForm extends JXPanel {
         jXButton3 = new org.jdesktop.swingx.JXButton();
         jXButton4 = new org.jdesktop.swingx.JXButton();
         jXButton6 = new org.jdesktop.swingx.JXButton();
-        offPanel = new com.jme3.gde.jmeguiforms.OffScenePanelBeanForm();
+        offPanel = new com.jme3.gde.jmeguiforms.OffScenePanel();
 
         jToolBar1.setRollover(true);
 
-        jToggleButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/jme3/gde/jmeguiforms/icons/box_wire.gif"))); // NOI18N
-        jToggleButton1.setText(org.openide.util.NbBundle.getMessage(PreviewModelBeanForm.class, "PreviewModelBeanForm.jToggleButton1.text")); // NOI18N
+        jToggleButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/jme3/gde/jmeguiforms/icons/box_color.gif"))); // NOI18N
+        jToggleButton1.setText(org.openide.util.NbBundle.getMessage(PreviewModelPanel.class, "PreviewModelPanel.jToggleButton1.text")); // NOI18N
         jToggleButton1.setFocusable(false);
         jToggleButton1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jToggleButton1.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/com/jme3/gde/jmeguiforms/icons/box_wire.gif"))); // NOI18N
+        jToggleButton1.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/com/jme3/gde/jmeguiforms/icons/box_wire.gif"))); // NOI18N
         jToggleButton1.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         jToggleButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -76,7 +78,7 @@ public class PreviewModelBeanForm extends JXPanel {
         jToolBar1.add(jToggleButton1);
 
         jXButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/jme3/gde/jmeguiforms/icons/+zoom.png"))); // NOI18N
-        jXButton1.setText(org.openide.util.NbBundle.getMessage(PreviewModelBeanForm.class, "PreviewModelBeanForm.jXButton1.text")); // NOI18N
+        jXButton1.setText(org.openide.util.NbBundle.getMessage(PreviewModelPanel.class, "PreviewModelPanel.jXButton1.text")); // NOI18N
         jXButton1.setFocusable(false);
         jXButton1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jXButton1.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
@@ -88,7 +90,7 @@ public class PreviewModelBeanForm extends JXPanel {
         jToolBar1.add(jXButton1);
 
         jXButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/jme3/gde/jmeguiforms/icons/-zoom.png"))); // NOI18N
-        jXButton2.setText(org.openide.util.NbBundle.getMessage(PreviewModelBeanForm.class, "PreviewModelBeanForm.jXButton2.text")); // NOI18N
+        jXButton2.setText(org.openide.util.NbBundle.getMessage(PreviewModelPanel.class, "PreviewModelPanel.jXButton2.text")); // NOI18N
         jXButton2.setFocusable(false);
         jXButton2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jXButton2.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
@@ -100,7 +102,7 @@ public class PreviewModelBeanForm extends JXPanel {
         jToolBar1.add(jXButton2);
 
         jXButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/jme3/gde/jmeguiforms/icons/rotate-right.png"))); // NOI18N
-        jXButton3.setText(org.openide.util.NbBundle.getMessage(PreviewModelBeanForm.class, "PreviewModelBeanForm.jXButton3.text")); // NOI18N
+        jXButton3.setText(org.openide.util.NbBundle.getMessage(PreviewModelPanel.class, "PreviewModelPanel.jXButton3.text")); // NOI18N
         jXButton3.setFocusable(false);
         jXButton3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jXButton3.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
@@ -112,7 +114,7 @@ public class PreviewModelBeanForm extends JXPanel {
         jToolBar1.add(jXButton3);
 
         jXButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/jme3/gde/jmeguiforms/icons/rotate-left.png"))); // NOI18N
-        jXButton4.setText(org.openide.util.NbBundle.getMessage(PreviewModelBeanForm.class, "PreviewModelBeanForm.jXButton4.text")); // NOI18N
+        jXButton4.setText(org.openide.util.NbBundle.getMessage(PreviewModelPanel.class, "PreviewModelPanel.jXButton4.text")); // NOI18N
         jXButton4.setFocusable(false);
         jXButton4.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jXButton4.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
@@ -123,7 +125,7 @@ public class PreviewModelBeanForm extends JXPanel {
         });
         jToolBar1.add(jXButton4);
 
-        jXButton6.setText(org.openide.util.NbBundle.getMessage(PreviewModelBeanForm.class, "PreviewModelBeanForm.jXButton6.text")); // NOI18N
+        jXButton6.setText(org.openide.util.NbBundle.getMessage(PreviewModelPanel.class, "PreviewModelPanel.jXButton6.text")); // NOI18N
         jXButton6.setFocusable(false);
         jXButton6.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jXButton6.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
@@ -158,11 +160,7 @@ public class PreviewModelBeanForm extends JXPanel {
 
     private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
         // TODO add your handling code here:
-        if (wireframe) {
-            offPanel.disableWireFrame();
-        } else {
-            offPanel.enableWireFrame();
-        }
+        offPanel.enableWireFrame(jToggleButton1.isSelected());
     }//GEN-LAST:event_jToggleButton1ActionPerformed
 
     private void jXButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jXButton1ActionPerformed
@@ -192,6 +190,6 @@ public class PreviewModelBeanForm extends JXPanel {
     private org.jdesktop.swingx.JXButton jXButton3;
     private org.jdesktop.swingx.JXButton jXButton4;
     private org.jdesktop.swingx.JXButton jXButton6;
-    private com.jme3.gde.jmeguiforms.OffScenePanelBeanForm offPanel;
+    private com.jme3.gde.jmeguiforms.OffScenePanel offPanel;
     // End of variables declaration//GEN-END:variables
 }

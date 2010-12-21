@@ -4,7 +4,7 @@
  */
 package com.jme3.gde.jmeguiforms.event;
 
-import com.jme3.gde.jmeguiforms.WheelPanelBeanForm;
+import com.jme3.gde.jmeguiforms.WheelPanel;
 import java.util.EventObject;
 
 /**
@@ -13,11 +13,11 @@ import java.util.EventObject;
  */
 public class WheelPanelBeanFormEvent extends EventObject {
 
-    public WheelPanelBeanFormEvent(WheelPanelBeanForm wheelPanel) {
+    public WheelPanelBeanFormEvent(WheelPanel wheelPanel) {
         super(wheelPanel);
     }
 
-    public WheelPanelBeanForm getSource() {
-        return (WheelPanelBeanForm) source;
+    public WheelPanel getSource() {
+        return (WheelPanel) source;
     }
 }

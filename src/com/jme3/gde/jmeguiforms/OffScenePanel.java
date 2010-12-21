@@ -10,7 +10,6 @@
  */
 package com.jme3.gde.jmeguiforms;
 
-import com.jme3.gde.core.scene.OffScenePanel;
 import com.jme3.gde.core.scene.SceneApplication;
 import com.jme3.gde.core.scene.processors.WireProcessor;
 import java.util.concurrent.Callable;
@@ -19,46 +18,40 @@ import java.util.concurrent.Callable;
  *
  * @author Glauco
  */
-public class OffScenePanelBeanForm extends OffScenePanel {
+public class OffScenePanel extends com.jme3.gde.core.scene.OffScenePanel {
 
     private WireProcessor processor;
 
     /** Creates new form OffScenePanelBeanForm */
-    public OffScenePanelBeanForm() {
+    public OffScenePanel() {
         this(320, 320);
     }
 
     /** Creates new form OffScenePanelBeanForm */
-    public OffScenePanelBeanForm(int width, int height) {
+    public OffScenePanel(int width, int height) {
         super(width, height);
         initComponents();
     }
 
-    public void enableWireFrame() {
+    public void enableWireFrame(final boolean enable) {
         SceneApplication.getApplication().enqueue(new Callable<Object>() {
 
             public Object call() throws Exception {
-                doEnableWireFrame();
+                if (enable) {
+                    doEnableWireFrame();
+                } else {
+                    doDisableWireFrame();
+                }
                 return null;
             }
         });
     }
 
-    public void doEnableWireFrame() {
+    private void doEnableWireFrame() {
         getViewPort().addProcessor(getWireProcessor());
     }
 
-    public void disableWireFrame() {
-        SceneApplication.getApplication().enqueue(new Callable<Object>() {
-
-            public Object call() throws Exception {
-                doDisableWireFrame();
-                return null;
-            }
-        });
-    }
-
-    public void doDisableWireFrame() {
+    private void doDisableWireFrame() {
         getViewPort().removeProcessor(getWireProcessor());
     }
 
@@ -84,7 +77,6 @@ public class OffScenePanelBeanForm extends OffScenePanel {
     private void initComponents() {
 
         setBackground(new java.awt.Color(51, 51, 51));
-        setCamFocus(null);
         setPreferredSize(new java.awt.Dimension(320, 320));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);

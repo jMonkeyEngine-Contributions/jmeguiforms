@@ -23,12 +23,12 @@ import org.jdesktop.swingx.JXTitledPanel;
  *
  * @author Glauco
  */
-public class WheelPanelBeanForm extends JXTitledPanel {
+public class WheelPanel extends JXTitledPanel {
 
     private List<WheelPanelListener> listeners;
 
     /** Creates new form WheelPanelBeanForm */
-    public WheelPanelBeanForm() {
+    public WheelPanel() {
         initComponents();
         listeners = new ArrayList<WheelPanelListener>();
     }
@@ -49,7 +49,7 @@ public class WheelPanelBeanForm extends JXTitledPanel {
         return spatialTextField.getText();
     }
 
-    public WheelPanelBeanForm setNameValue(String name) {
+    public WheelPanel setNameValue(String name) {
         ((JXTextField) getLeftDecoration()).setText(name);
         return this;
     }
@@ -121,6 +121,10 @@ public class WheelPanelBeanForm extends JXTitledPanel {
         return Boolean.parseBoolean((String) jXComboBox1.getSelectedItem());
     }
 
+    public void cleanup() {
+        listeners.clear();
+    }
+
     /** This method is called from within the constructor to
      * initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is
@@ -156,7 +160,7 @@ public class WheelPanelBeanForm extends JXTitledPanel {
         spatialTextField = new org.jdesktop.swingx.JXTextField();
         loadSpatialButton = new org.jdesktop.swingx.JXButton();
 
-        closeButton.setText(org.openide.util.NbBundle.getMessage(WheelPanelBeanForm.class, "WheelPanelBeanForm.closeButton.text")); // NOI18N
+        closeButton.setText(org.openide.util.NbBundle.getMessage(WheelPanel.class, "WheelPanel.closeButton.text")); // NOI18N
         closeButton.setContentAreaFilled(false);
         closeButton.setFont(new java.awt.Font("Lao UI", 1, 11));
         closeButton.setRequestFocusEnabled(false);
@@ -166,7 +170,7 @@ public class WheelPanelBeanForm extends JXTitledPanel {
             }
         });
 
-        nameTextField.setText(org.openide.util.NbBundle.getMessage(WheelPanelBeanForm.class, "WheelPanelBeanForm.nameTextField.text")); // NOI18N
+        nameTextField.setText(org.openide.util.NbBundle.getMessage(WheelPanel.class, "WheelPanel.nameTextField.text")); // NOI18N
         nameTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 nameTextFieldActionPerformed(evt);
@@ -178,7 +182,7 @@ public class WheelPanelBeanForm extends JXTitledPanel {
         getContentContainer().setLayout(new java.awt.GridLayout(1, 0));
 
         jXTaskPane1.setCollapsed(true);
-        jXTaskPane1.setTitle(org.openide.util.NbBundle.getMessage(WheelPanelBeanForm.class, "WheelPanelBeanForm.jXTaskPane1.title")); // NOI18N
+        jXTaskPane1.setTitle(org.openide.util.NbBundle.getMessage(WheelPanel.class, "WheelPanel.jXTaskPane1.title")); // NOI18N
         jXTaskPane1.getContentPane().setLayout(new java.awt.GridLayout(1, 0));
 
         jSpinner1.setModel(new javax.swing.SpinnerNumberModel(Float.valueOf(0.0f), null, null, Float.valueOf(1.0f)));
@@ -211,7 +215,7 @@ public class WheelPanelBeanForm extends JXTitledPanel {
         jXTaskPaneContainer1.add(jXTaskPane1);
 
         jXTaskPane2.setCollapsed(true);
-        jXTaskPane2.setTitle(org.openide.util.NbBundle.getMessage(WheelPanelBeanForm.class, "WheelPanelBeanForm.jXTaskPane2.title")); // NOI18N
+        jXTaskPane2.setTitle(org.openide.util.NbBundle.getMessage(WheelPanel.class, "WheelPanel.jXTaskPane2.title")); // NOI18N
         jXTaskPane2.getContentPane().setLayout(new java.awt.GridLayout(1, 0));
 
         jSpinner4.setModel(new javax.swing.SpinnerNumberModel(Float.valueOf(0.0f), null, null, Float.valueOf(1.0f)));
@@ -244,7 +248,7 @@ public class WheelPanelBeanForm extends JXTitledPanel {
         jXTaskPaneContainer1.add(jXTaskPane2);
 
         jXTaskPane3.setCollapsed(true);
-        jXTaskPane3.setTitle(org.openide.util.NbBundle.getMessage(WheelPanelBeanForm.class, "WheelPanelBeanForm.jXTaskPane3.title")); // NOI18N
+        jXTaskPane3.setTitle(org.openide.util.NbBundle.getMessage(WheelPanel.class, "WheelPanel.jXTaskPane3.title")); // NOI18N
         jXTaskPane3.getContentPane().setLayout(new java.awt.GridLayout(1, 0));
 
         jSpinner7.setModel(new javax.swing.SpinnerNumberModel(Float.valueOf(0.0f), null, null, Float.valueOf(1.0f)));
@@ -277,7 +281,7 @@ public class WheelPanelBeanForm extends JXTitledPanel {
         jXTaskPaneContainer1.add(jXTaskPane3);
 
         jXTaskPane4.setCollapsed(true);
-        jXTaskPane4.setTitle(org.openide.util.NbBundle.getMessage(WheelPanelBeanForm.class, "WheelPanelBeanForm.jXTaskPane4.title")); // NOI18N
+        jXTaskPane4.setTitle(org.openide.util.NbBundle.getMessage(WheelPanel.class, "WheelPanel.jXTaskPane4.title")); // NOI18N
         jXTaskPane4.getContentPane().setLayout(new java.awt.GridLayout(1, 0));
 
         jSpinner10.setModel(new javax.swing.SpinnerNumberModel(Float.valueOf(0.0f), null, null, Float.valueOf(1.0f)));
@@ -292,7 +296,7 @@ public class WheelPanelBeanForm extends JXTitledPanel {
         jXTaskPaneContainer1.add(jXTaskPane4);
 
         jXTaskPane5.setCollapsed(true);
-        jXTaskPane5.setTitle(org.openide.util.NbBundle.getMessage(WheelPanelBeanForm.class, "WheelPanelBeanForm.jXTaskPane5.title")); // NOI18N
+        jXTaskPane5.setTitle(org.openide.util.NbBundle.getMessage(WheelPanel.class, "WheelPanel.jXTaskPane5.title")); // NOI18N
         jXTaskPane5.getContentPane().setLayout(new java.awt.GridLayout(1, 0));
 
         jSpinner11.setModel(new javax.swing.SpinnerNumberModel(Float.valueOf(0.0f), null, null, Float.valueOf(1.0f)));
@@ -307,7 +311,7 @@ public class WheelPanelBeanForm extends JXTitledPanel {
         jXTaskPaneContainer1.add(jXTaskPane5);
 
         jXTaskPane6.setCollapsed(true);
-        jXTaskPane6.setTitle(org.openide.util.NbBundle.getMessage(WheelPanelBeanForm.class, "WheelPanelBeanForm.jXTaskPane6.title")); // NOI18N
+        jXTaskPane6.setTitle(org.openide.util.NbBundle.getMessage(WheelPanel.class, "WheelPanel.jXTaskPane6.title")); // NOI18N
         jXTaskPane6.getContentPane().setLayout(new java.awt.GridLayout(1, 0));
 
         jXComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "True", "False" }));
@@ -321,11 +325,11 @@ public class WheelPanelBeanForm extends JXTitledPanel {
         jXTaskPaneContainer1.add(jXTaskPane6);
 
         jXTaskPane7.setCollapsed(true);
-        jXTaskPane7.setTitle(org.openide.util.NbBundle.getMessage(WheelPanelBeanForm.class, "WheelPanelBeanForm.jXTaskPane7.title")); // NOI18N
+        jXTaskPane7.setTitle(org.openide.util.NbBundle.getMessage(WheelPanel.class, "WheelPanel.jXTaskPane7.title")); // NOI18N
         jXTaskPane7.getContentPane().setLayout(new java.awt.GridLayout(2, 0));
 
         spatialTextField.setEditable(false);
-        spatialTextField.setText(org.openide.util.NbBundle.getMessage(WheelPanelBeanForm.class, "WheelPanelBeanForm.spatialTextField.text")); // NOI18N
+        spatialTextField.setText(org.openide.util.NbBundle.getMessage(WheelPanel.class, "WheelPanel.spatialTextField.text")); // NOI18N
         spatialTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 spatialTextFieldActionPerformed(evt);
@@ -333,7 +337,7 @@ public class WheelPanelBeanForm extends JXTitledPanel {
         });
         jXTaskPane7.getContentPane().add(spatialTextField);
 
-        loadSpatialButton.setText(org.openide.util.NbBundle.getMessage(WheelPanelBeanForm.class, "WheelPanelBeanForm.loadSpatialButton.text")); // NOI18N
+        loadSpatialButton.setText(org.openide.util.NbBundle.getMessage(WheelPanel.class, "WheelPanel.loadSpatialButton.text")); // NOI18N
         loadSpatialButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 loadSpatialButtonActionPerformed(evt);
