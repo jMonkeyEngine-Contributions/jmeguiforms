@@ -11,9 +11,9 @@ import java.util.EventObject;
  *
  * @author Glauco
  */
-public class WheelPanelBeanFormEvent extends EventObject {
+public class WheelPanelEvent extends EventObject {
 
-    public WheelPanelBeanFormEvent(WheelPanel wheelPanel) {
+    public WheelPanelEvent(WheelPanel wheelPanel) {
         super(wheelPanel);
     }
 

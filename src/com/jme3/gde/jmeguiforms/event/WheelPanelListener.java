@@ -10,9 +10,9 @@ package com.jme3.gde.jmeguiforms.event;
  */
 public interface WheelPanelListener {
 
-    public void valueChanged(WheelPanelBeanFormEvent e);
+    public void valueChanged(WheelPanelEvent e);
 
-    public void loadAssetActionPerformed(WheelPanelBeanFormEvent e);
+    public void loadAssetActionPerformed(WheelPanelEvent e);
 
-    public void closeActionPerformed(WheelPanelBeanFormEvent e);
+    public void closeActionPerformed(WheelPanelEvent e);
 }

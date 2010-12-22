@@ -10,7 +10,10 @@
  */
 package com.jme3.gde.jmeguiforms;
 
+import com.jme3.bullet.collision.PhysicsCollisionObject;
+import com.jme3.gde.core.scene.SceneApplication;
 import com.jme3.math.Vector3f;
+import com.jme3.scene.Node;
 import com.jme3.scene.Spatial;
 import org.jdesktop.swingx.JXPanel;
 
@@ -37,6 +40,18 @@ public class PreviewModelPanel extends JXPanel {
 
     public void detach(Spatial spat) {
         offPanel.detach(spat);
+    }
+
+    public void attachDebugShape(Node node) {
+        if (node instanceof PhysicsCollisionObject) {
+            ((PhysicsCollisionObject) node).attachDebugShape(
+                    SceneApplication.getApplication().getAssetManager());
+        }
+        for (Spatial spatial : node.getChildren()) {
+            if (spatial instanceof Node) {
+                attachDebugShape(node);
+            }
+        }
     }
 
     public void cleanup() {
@@ -129,6 +144,11 @@ public class PreviewModelPanel extends JXPanel {
         jXButton6.setFocusable(false);
         jXButton6.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jXButton6.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jXButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jXButton6ActionPerformed(evt);
+            }
+        });
         jToolBar1.add(jXButton6);
 
         javax.swing.GroupLayout offPanelLayout = new javax.swing.GroupLayout(offPanel);
@@ -182,6 +202,11 @@ public class PreviewModelPanel extends JXPanel {
         // TODO add your handling code here:
         offPanel.rotateCamera(Vector3f.UNIT_Y.clone(), -.1f);
     }//GEN-LAST:event_jXButton4ActionPerformed
+
+    private void jXButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jXButton6ActionPerformed
+        // TODO add your handling code here:
+        attachDebugShape(offPanel.getRootNode());
+    }//GEN-LAST:event_jXButton6ActionPerformed
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JToggleButton jToggleButton1;
     private javax.swing.JToolBar jToolBar1;

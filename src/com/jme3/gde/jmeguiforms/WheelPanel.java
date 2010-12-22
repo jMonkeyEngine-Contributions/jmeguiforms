@@ -10,10 +10,9 @@
  */
 package com.jme3.gde.jmeguiforms;
 
-import com.jme3.gde.jmeguiforms.event.WheelPanelBeanFormEvent;
+import com.jme3.gde.jmeguiforms.event.WheelPanelEvent;
 import com.jme3.gde.jmeguiforms.event.WheelPanelListener;
 import com.jme3.math.Vector3f;
-import com.jme3.scene.Spatial;
 import java.util.ArrayList;
 import java.util.List;
 import org.jdesktop.swingx.JXTextField;
@@ -185,8 +184,7 @@ public class WheelPanel extends JXTitledPanel {
         jXTaskPane1.setTitle(org.openide.util.NbBundle.getMessage(WheelPanel.class, "WheelPanel.jXTaskPane1.title")); // NOI18N
         jXTaskPane1.getContentPane().setLayout(new java.awt.GridLayout(1, 0));
 
-        jSpinner1.setModel(new javax.swing.SpinnerNumberModel(Float.valueOf(0.0f), null, null, Float.valueOf(1.0f)));
-        jSpinner1.setValue(1d);
+        jSpinner1.setModel(new javax.swing.SpinnerNumberModel(Float.valueOf(1.0f), null, null, Float.valueOf(1.0f)));
         jSpinner1.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
                 jSpinner1StateChanged(evt);
@@ -194,8 +192,7 @@ public class WheelPanel extends JXTitledPanel {
         });
         jXTaskPane1.getContentPane().add(jSpinner1);
 
-        jSpinner2.setModel(new javax.swing.SpinnerNumberModel(Float.valueOf(0.0f), null, null, Float.valueOf(1.0f)));
-        jSpinner2.setValue(1d);
+        jSpinner2.setModel(new javax.swing.SpinnerNumberModel(Float.valueOf(1.0f), null, null, Float.valueOf(1.0f)));
         jSpinner2.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
                 jSpinner2StateChanged(evt);
@@ -203,8 +200,7 @@ public class WheelPanel extends JXTitledPanel {
         });
         jXTaskPane1.getContentPane().add(jSpinner2);
 
-        jSpinner3.setModel(new javax.swing.SpinnerNumberModel(Float.valueOf(0.0f), null, null, Float.valueOf(1.0f)));
-        jSpinner3.setValue(1d);
+        jSpinner3.setModel(new javax.swing.SpinnerNumberModel(Float.valueOf(2.0f), null, null, Float.valueOf(1.0f)));
         jSpinner3.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
                 jSpinner3StateChanged(evt);
@@ -219,7 +215,6 @@ public class WheelPanel extends JXTitledPanel {
         jXTaskPane2.getContentPane().setLayout(new java.awt.GridLayout(1, 0));
 
         jSpinner4.setModel(new javax.swing.SpinnerNumberModel(Float.valueOf(0.0f), null, null, Float.valueOf(1.0f)));
-        jSpinner4.setValue(1d);
         jSpinner4.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
                 jSpinner4StateChanged(evt);
@@ -227,8 +222,7 @@ public class WheelPanel extends JXTitledPanel {
         });
         jXTaskPane2.getContentPane().add(jSpinner4);
 
-        jSpinner5.setModel(new javax.swing.SpinnerNumberModel(Float.valueOf(0.0f), null, null, Float.valueOf(1.0f)));
-        jSpinner5.setValue(1d);
+        jSpinner5.setModel(new javax.swing.SpinnerNumberModel(Float.valueOf(-1.0f), null, null, Float.valueOf(1.0f)));
         jSpinner5.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
                 jSpinner5StateChanged(evt);
@@ -237,7 +231,6 @@ public class WheelPanel extends JXTitledPanel {
         jXTaskPane2.getContentPane().add(jSpinner5);
 
         jSpinner6.setModel(new javax.swing.SpinnerNumberModel(Float.valueOf(0.0f), null, null, Float.valueOf(1.0f)));
-        jSpinner6.setValue(1d);
         jSpinner6.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
                 jSpinner6StateChanged(evt);
@@ -251,8 +244,7 @@ public class WheelPanel extends JXTitledPanel {
         jXTaskPane3.setTitle(org.openide.util.NbBundle.getMessage(WheelPanel.class, "WheelPanel.jXTaskPane3.title")); // NOI18N
         jXTaskPane3.getContentPane().setLayout(new java.awt.GridLayout(1, 0));
 
-        jSpinner7.setModel(new javax.swing.SpinnerNumberModel(Float.valueOf(0.0f), null, null, Float.valueOf(1.0f)));
-        jSpinner7.setValue(1d);
+        jSpinner7.setModel(new javax.swing.SpinnerNumberModel(Float.valueOf(-1.0f), null, null, Float.valueOf(1.0f)));
         jSpinner7.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
                 jSpinner7StateChanged(evt);
@@ -261,7 +253,6 @@ public class WheelPanel extends JXTitledPanel {
         jXTaskPane3.getContentPane().add(jSpinner7);
 
         jSpinner8.setModel(new javax.swing.SpinnerNumberModel(Float.valueOf(0.0f), null, null, Float.valueOf(1.0f)));
-        jSpinner8.setValue(1d);
         jSpinner8.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
                 jSpinner8StateChanged(evt);
@@ -270,7 +261,6 @@ public class WheelPanel extends JXTitledPanel {
         jXTaskPane3.getContentPane().add(jSpinner8);
 
         jSpinner9.setModel(new javax.swing.SpinnerNumberModel(Float.valueOf(0.0f), null, null, Float.valueOf(1.0f)));
-        jSpinner9.setValue(1d);
         jSpinner9.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
                 jSpinner9StateChanged(evt);
@@ -284,8 +274,7 @@ public class WheelPanel extends JXTitledPanel {
         jXTaskPane4.setTitle(org.openide.util.NbBundle.getMessage(WheelPanel.class, "WheelPanel.jXTaskPane4.title")); // NOI18N
         jXTaskPane4.getContentPane().setLayout(new java.awt.GridLayout(1, 0));
 
-        jSpinner10.setModel(new javax.swing.SpinnerNumberModel(Float.valueOf(0.0f), null, null, Float.valueOf(1.0f)));
-        jSpinner10.setValue(0d);
+        jSpinner10.setModel(new javax.swing.SpinnerNumberModel(Float.valueOf(1.0f), null, null, Float.valueOf(1.0f)));
         jSpinner10.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
                 jSpinner10StateChanged(evt);
@@ -299,8 +288,7 @@ public class WheelPanel extends JXTitledPanel {
         jXTaskPane5.setTitle(org.openide.util.NbBundle.getMessage(WheelPanel.class, "WheelPanel.jXTaskPane5.title")); // NOI18N
         jXTaskPane5.getContentPane().setLayout(new java.awt.GridLayout(1, 0));
 
-        jSpinner11.setModel(new javax.swing.SpinnerNumberModel(Float.valueOf(0.0f), null, null, Float.valueOf(1.0f)));
-        jSpinner11.setValue(0d);
+        jSpinner11.setModel(new javax.swing.SpinnerNumberModel(Float.valueOf(1.0f), null, null, Float.valueOf(1.0f)));
         jSpinner11.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
                 jSpinner11StateChanged(evt);
@@ -355,112 +343,112 @@ public class WheelPanel extends JXTitledPanel {
     private void jSpinner1StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jSpinner1StateChanged
         // TODO add your handling code here:
         for (WheelPanelListener wheelPanelListener : listeners) {
-            wheelPanelListener.valueChanged(new WheelPanelBeanFormEvent(this));
+            wheelPanelListener.valueChanged(new WheelPanelEvent(this));
         }
     }//GEN-LAST:event_jSpinner1StateChanged
 
     private void jSpinner2StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jSpinner2StateChanged
         // TODO add your handling code here:
         for (WheelPanelListener wheelPanelListener : listeners) {
-            wheelPanelListener.valueChanged(new WheelPanelBeanFormEvent(this));
+            wheelPanelListener.valueChanged(new WheelPanelEvent(this));
         }
     }//GEN-LAST:event_jSpinner2StateChanged
 
     private void jSpinner3StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jSpinner3StateChanged
         // TODO add your handling code here:
         for (WheelPanelListener wheelPanelListener : listeners) {
-            wheelPanelListener.valueChanged(new WheelPanelBeanFormEvent(this));
+            wheelPanelListener.valueChanged(new WheelPanelEvent(this));
         }
     }//GEN-LAST:event_jSpinner3StateChanged
 
     private void jSpinner4StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jSpinner4StateChanged
         // TODO add your handling code here:
         for (WheelPanelListener wheelPanelListener : listeners) {
-            wheelPanelListener.valueChanged(new WheelPanelBeanFormEvent(this));
+            wheelPanelListener.valueChanged(new WheelPanelEvent(this));
         }
     }//GEN-LAST:event_jSpinner4StateChanged
 
     private void jSpinner5StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jSpinner5StateChanged
         // TODO add your handling code here:
         for (WheelPanelListener wheelPanelListener : listeners) {
-            wheelPanelListener.valueChanged(new WheelPanelBeanFormEvent(this));
+            wheelPanelListener.valueChanged(new WheelPanelEvent(this));
         }
     }//GEN-LAST:event_jSpinner5StateChanged
 
     private void jSpinner6StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jSpinner6StateChanged
         // TODO add your handling code here:
         for (WheelPanelListener wheelPanelListener : listeners) {
-            wheelPanelListener.valueChanged(new WheelPanelBeanFormEvent(this));
+            wheelPanelListener.valueChanged(new WheelPanelEvent(this));
         }
     }//GEN-LAST:event_jSpinner6StateChanged
 
     private void jSpinner7StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jSpinner7StateChanged
         // TODO add your handling code here:
         for (WheelPanelListener wheelPanelListener : listeners) {
-            wheelPanelListener.valueChanged(new WheelPanelBeanFormEvent(this));
+            wheelPanelListener.valueChanged(new WheelPanelEvent(this));
         }
     }//GEN-LAST:event_jSpinner7StateChanged
 
     private void jSpinner8StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jSpinner8StateChanged
         // TODO add your handling code here:
         for (WheelPanelListener wheelPanelListener : listeners) {
-            wheelPanelListener.valueChanged(new WheelPanelBeanFormEvent(this));
+            wheelPanelListener.valueChanged(new WheelPanelEvent(this));
         }
     }//GEN-LAST:event_jSpinner8StateChanged
 
     private void jSpinner9StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jSpinner9StateChanged
         // TODO add your handling code here:
         for (WheelPanelListener wheelPanelListener : listeners) {
-            wheelPanelListener.valueChanged(new WheelPanelBeanFormEvent(this));
+            wheelPanelListener.valueChanged(new WheelPanelEvent(this));
         }
     }//GEN-LAST:event_jSpinner9StateChanged
 
     private void jSpinner10StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jSpinner10StateChanged
         // TODO add your handling code here:
         for (WheelPanelListener wheelPanelListener : listeners) {
-            wheelPanelListener.valueChanged(new WheelPanelBeanFormEvent(this));
+            wheelPanelListener.valueChanged(new WheelPanelEvent(this));
         }
     }//GEN-LAST:event_jSpinner10StateChanged
 
     private void jSpinner11StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jSpinner11StateChanged
         // TODO add your handling code here:
         for (WheelPanelListener wheelPanelListener : listeners) {
-            wheelPanelListener.valueChanged(new WheelPanelBeanFormEvent(this));
+            wheelPanelListener.valueChanged(new WheelPanelEvent(this));
         }
     }//GEN-LAST:event_jSpinner11StateChanged
 
     private void jXComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jXComboBox1ActionPerformed
         // TODO add your handling code here:
         for (WheelPanelListener wheelPanelListener : listeners) {
-            wheelPanelListener.valueChanged(new WheelPanelBeanFormEvent(this));
+            wheelPanelListener.valueChanged(new WheelPanelEvent(this));
         }
     }//GEN-LAST:event_jXComboBox1ActionPerformed
 
     private void spatialTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_spatialTextFieldActionPerformed
         // TODO add your handling code here:
         for (WheelPanelListener wheelPanelListener : listeners) {
-            wheelPanelListener.valueChanged(new WheelPanelBeanFormEvent(this));
+            wheelPanelListener.valueChanged(new WheelPanelEvent(this));
         }
     }//GEN-LAST:event_spatialTextFieldActionPerformed
 
     private void loadSpatialButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loadSpatialButtonActionPerformed
         // TODO add your handling code here:
         for (WheelPanelListener wheelPanelListener : listeners) {
-            wheelPanelListener.loadAssetActionPerformed(new WheelPanelBeanFormEvent(this));
+            wheelPanelListener.loadAssetActionPerformed(new WheelPanelEvent(this));
         }
     }//GEN-LAST:event_loadSpatialButtonActionPerformed
 
     private void closeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closeButtonActionPerformed
         // TODO add your handling code here:
         for (WheelPanelListener wheelPanelListener : listeners) {
-            wheelPanelListener.closeActionPerformed(new WheelPanelBeanFormEvent(this));
+            wheelPanelListener.closeActionPerformed(new WheelPanelEvent(this));
         }
     }//GEN-LAST:event_closeButtonActionPerformed
 
     private void nameTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nameTextFieldActionPerformed
         // TODO add your handling code here:
         for (WheelPanelListener wheelPanelListener : listeners) {
-            wheelPanelListener.valueChanged(new WheelPanelBeanFormEvent(this));
+            wheelPanelListener.valueChanged(new WheelPanelEvent(this));
         }
     }//GEN-LAST:event_nameTextFieldActionPerformed
     // Variables declaration - do not modify//GEN-BEGIN:variables

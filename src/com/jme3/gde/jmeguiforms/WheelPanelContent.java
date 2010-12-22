@@ -10,8 +10,11 @@
  */
 package com.jme3.gde.jmeguiforms;
 
+import com.jme3.gde.jmeguiforms.event.WheelPanelContentEvent;
+import com.jme3.gde.jmeguiforms.event.WheelPanelContentListener;
 import com.jme3.gde.jmeguiforms.event.WheelPanelListener;
-import java.util.Arrays;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -19,29 +22,41 @@ import java.util.Arrays;
  */
 public class WheelPanelContent extends javax.swing.JPanel {
 
+    private List<WheelPanelContentListener> listeners;
+    private List<WheelPanel> children;
+
     /** Creates new form WheelPanelContent */
     public WheelPanelContent() {
         initComponents();
+        listeners = new ArrayList<WheelPanelContentListener>();
+        children = new ArrayList<WheelPanel>();
     }
 
-    public WheelPanel addWheelPanel(String wheelName) {
-        WheelPanel panel = new WheelPanel().setNameValue(wheelName);
-        jXPanel1.add(panel);
-        jXPanel1.validate();
-        jXPanel1.repaint();
+    public WheelPanel addWheelPanel(String wheelNameValue) {
+        WheelPanel panel = new WheelPanel().setNameValue(wheelNameValue);
+        children.add(panel);
+        jPanel1.add(panel);
+        jPanel1.validate();
+        jPanel1.repaint();
+        return panel;
+    }
+
+    public WheelPanel addWheelPanel(String wheelNameValue, WheelPanelListener listener) {
+        WheelPanel panel = addWheelPanel(wheelNameValue);
+        panel.addWheelPanelListener(listener);
         return panel;
     }
 
     public void removeWheelPanel(String wheelName) {
-        for (WheelPanel wheelPanel : Arrays.asList((WheelPanel[]) getComponents())) {
-            if (wheelPanel.getNameValue().equals(wheelName)) {
-                remove(getWheelPanel(wheelName));
-            }
-        }
+        WheelPanel wheelPanel = getWheelPanel(wheelName);
+        children.remove(wheelPanel);
+        jPanel1.remove(wheelPanel);
+        jPanel1.validate();
+        jPanel1.repaint();
     }
 
     public WheelPanel getWheelPanel(String wheelName) {
-        for (WheelPanel wheelPanel : Arrays.asList((WheelPanel[]) getComponents())) {
+        for (WheelPanel wheelPanel : children) {
             if (wheelPanel.getNameValue().equals(wheelName)) {
                 return wheelPanel;
             }
@@ -49,16 +64,20 @@ public class WheelPanelContent extends javax.swing.JPanel {
         return null;
     }
 
-    public void addWheelPanelListener(WheelPanelListener listener) {
-        for (WheelPanel wheelPanel : Arrays.asList((WheelPanel[]) getComponents())) {
-            wheelPanel.addWheelPanelListener(listener);
-        }
+    public void addWheelPanelContentListener(WheelPanelContentListener listener) {
+        listeners.add(listener);
+    }
+
+    public void removeWheelPanelContentListener(WheelPanelContentListener listener) {
+        listeners.remove(listener);
     }
 
     public void cleanup() {
-        for (WheelPanel wheelPanel : Arrays.asList((WheelPanel[]) getComponents())) {
+        listeners.clear();
+        for (WheelPanel wheelPanel : children) {
             wheelPanel.cleanup();
         }
+        children.clear();
     }
 
     /** This method is called from within the constructor to
@@ -70,29 +89,44 @@ public class WheelPanelContent extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jToolBar1 = new javax.swing.JToolBar();
         jXButton1 = new org.jdesktop.swingx.JXButton();
-        jXPanel1 = new org.jdesktop.swingx.JXPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jPanel1 = new javax.swing.JPanel();
 
-        setLayout(new org.jdesktop.swingx.VerticalLayout());
+        setLayout(new java.awt.BorderLayout());
+
+        jToolBar1.setRollover(true);
 
         jXButton1.setText(org.openide.util.NbBundle.getMessage(WheelPanelContent.class, "WheelPanelContent.jXButton1.text")); // NOI18N
-        add(jXButton1);
+        jXButton1.setFocusable(false);
+        jXButton1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jXButton1.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jXButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jXButton1ActionPerformed(evt);
+            }
+        });
+        jToolBar1.add(jXButton1);
 
-        javax.swing.GroupLayout jXPanel1Layout = new javax.swing.GroupLayout(jXPanel1);
-        jXPanel1.setLayout(jXPanel1Layout);
-        jXPanel1Layout.setHorizontalGroup(
-            jXPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
-        );
-        jXPanel1Layout.setVerticalGroup(
-            jXPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
-        );
+        add(jToolBar1, java.awt.BorderLayout.NORTH);
 
-        add(jXPanel1);
+        jPanel1.setLayout(new org.jdesktop.swingx.VerticalLayout());
+        jScrollPane1.setViewportView(jPanel1);
+
+        add(jScrollPane1, java.awt.BorderLayout.CENTER);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jXButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jXButton1ActionPerformed
+        // TODO add your handling code here:
+        for (WheelPanelContentListener wheelPanelContentListener : listeners) {
+            wheelPanelContentListener.addWheelActionPerformed(new WheelPanelContentEvent(this));
+        }
+    }//GEN-LAST:event_jXButton1ActionPerformed
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JToolBar jToolBar1;
     private org.jdesktop.swingx.JXButton jXButton1;
-    private org.jdesktop.swingx.JXPanel jXPanel1;
     // End of variables declaration//GEN-END:variables
 }
