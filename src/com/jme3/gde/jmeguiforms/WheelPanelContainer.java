@@ -4,7 +4,7 @@
  */
 
 /*
- * WheelPanelContent.java
+ * WheelPanelContainer.java
  *
  * Created on 20/12/2010, 22:04:16
  */
@@ -20,13 +20,13 @@ import java.util.List;
  *
  * @author Glauco
  */
-public class WheelPanelContent extends javax.swing.JPanel {
+public class WheelPanelContainer extends javax.swing.JPanel {
 
     private List<WheelPanelContentListener> listeners;
     private List<WheelPanel> children;
 
-    /** Creates new form WheelPanelContent */
-    public WheelPanelContent() {
+    /** Creates new form WheelPanelContainer */
+    public WheelPanelContainer() {
         initComponents();
         listeners = new ArrayList<WheelPanelContentListener>();
         children = new ArrayList<WheelPanel>();
@@ -89,29 +89,26 @@ public class WheelPanelContent extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jToolBar1 = new javax.swing.JToolBar();
         jXButton1 = new org.jdesktop.swingx.JXButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jPanel1 = new javax.swing.JPanel();
 
         setLayout(new java.awt.BorderLayout());
 
-        jToolBar1.setRollover(true);
-
-        jXButton1.setText(org.openide.util.NbBundle.getMessage(WheelPanelContent.class, "WheelPanelContent.jXButton1.text")); // NOI18N
+        jXButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/jme3/gde/jmeguiforms/icons/wheel.png"))); // NOI18N
+        jXButton1.setText(org.openide.util.NbBundle.getMessage(WheelPanelContainer.class, "WheelPanelContainer.jXButton1.text")); // NOI18N
         jXButton1.setFocusable(false);
-        jXButton1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jXButton1.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jXButton1.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
         jXButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jXButton1ActionPerformed(evt);
             }
         });
-        jToolBar1.add(jXButton1);
+        add(jXButton1, java.awt.BorderLayout.NORTH);
+        jXButton1.getAccessibleContext().setAccessibleName(org.openide.util.NbBundle.getMessage(WheelPanelContainer.class, "WheelPanelContainer.jXButton1.AccessibleContext.accessibleName")); // NOI18N
+        jXButton1.getAccessibleContext().setAccessibleDescription(org.openide.util.NbBundle.getMessage(WheelPanelContainer.class, "WheelPanelContainer.jXButton1.AccessibleContext.accessibleDescription")); // NOI18N
 
-        add(jToolBar1, java.awt.BorderLayout.NORTH);
-
-        jPanel1.setLayout(new org.jdesktop.swingx.VerticalLayout());
+        jPanel1.setLayout(new javax.swing.BoxLayout(jPanel1, javax.swing.BoxLayout.Y_AXIS));
         jScrollPane1.setViewportView(jPanel1);
 
         add(jScrollPane1, java.awt.BorderLayout.CENTER);
@@ -126,7 +123,6 @@ public class WheelPanelContent extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JToolBar jToolBar1;
     private org.jdesktop.swingx.JXButton jXButton1;
     // End of variables declaration//GEN-END:variables
 }

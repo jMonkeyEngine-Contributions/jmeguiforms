@@ -5,7 +5,7 @@
 
 package com.jme3.gde.jmeguiforms.event;
 
-import com.jme3.gde.jmeguiforms.WheelPanelContent;
+import com.jme3.gde.jmeguiforms.WheelPanelContainer;
 import java.util.EventObject;
 
 /**
@@ -14,13 +14,13 @@ import java.util.EventObject;
  */
 public class WheelPanelContentEvent extends EventObject{
 
-    public WheelPanelContentEvent(WheelPanelContent wheelPanelcontent) {
+    public WheelPanelContentEvent(WheelPanelContainer wheelPanelcontent) {
         super(wheelPanelcontent);
     }
 
     @Override
-    public WheelPanelContent getSource() {
-        return (WheelPanelContent) source;
+    public WheelPanelContainer getSource() {
+        return (WheelPanelContainer) source;
     }
 
 }

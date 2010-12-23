@@ -135,7 +135,6 @@ public class WheelPanel extends JXTitledPanel {
 
         closeButton = new org.jdesktop.swingx.JXButton();
         nameTextField = new org.jdesktop.swingx.JXTextField();
-        jScrollPane1 = new javax.swing.JScrollPane();
         jXTaskPaneContainer1 = new org.jdesktop.swingx.JXTaskPaneContainer();
         jXTaskPane1 = new org.jdesktop.swingx.JXTaskPane();
         jSpinner1 = new javax.swing.JSpinner();
@@ -169,12 +168,8 @@ public class WheelPanel extends JXTitledPanel {
             }
         });
 
+        nameTextField.setEditable(false);
         nameTextField.setText(org.openide.util.NbBundle.getMessage(WheelPanel.class, "WheelPanel.nameTextField.text")); // NOI18N
-        nameTextField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                nameTextFieldActionPerformed(evt);
-            }
-        });
 
         setLeftDecoration(nameTextField);
         setRightDecoration(closeButton);
@@ -318,11 +313,6 @@ public class WheelPanel extends JXTitledPanel {
 
         spatialTextField.setEditable(false);
         spatialTextField.setText(org.openide.util.NbBundle.getMessage(WheelPanel.class, "WheelPanel.spatialTextField.text")); // NOI18N
-        spatialTextField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                spatialTextFieldActionPerformed(evt);
-            }
-        });
         jXTaskPane7.getContentPane().add(spatialTextField);
 
         loadSpatialButton.setText(org.openide.util.NbBundle.getMessage(WheelPanel.class, "WheelPanel.loadSpatialButton.text")); // NOI18N
@@ -335,9 +325,7 @@ public class WheelPanel extends JXTitledPanel {
 
         jXTaskPaneContainer1.add(jXTaskPane7);
 
-        jScrollPane1.setViewportView(jXTaskPaneContainer1);
-
-        getContentContainer().add(jScrollPane1);
+        getContentContainer().add(jXTaskPaneContainer1);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jSpinner1StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jSpinner1StateChanged
@@ -424,17 +412,10 @@ public class WheelPanel extends JXTitledPanel {
         }
     }//GEN-LAST:event_jXComboBox1ActionPerformed
 
-    private void spatialTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_spatialTextFieldActionPerformed
-        // TODO add your handling code here:
-        for (WheelPanelListener wheelPanelListener : listeners) {
-            wheelPanelListener.valueChanged(new WheelPanelEvent(this));
-        }
-    }//GEN-LAST:event_spatialTextFieldActionPerformed
-
     private void loadSpatialButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loadSpatialButtonActionPerformed
         // TODO add your handling code here:
         for (WheelPanelListener wheelPanelListener : listeners) {
-            wheelPanelListener.loadAssetActionPerformed(new WheelPanelEvent(this));
+            wheelPanelListener.loadSpatialActionPerformed(new WheelPanelEvent(this));
         }
     }//GEN-LAST:event_loadSpatialButtonActionPerformed
 
@@ -445,15 +426,8 @@ public class WheelPanel extends JXTitledPanel {
         }
     }//GEN-LAST:event_closeButtonActionPerformed
 
-    private void nameTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nameTextFieldActionPerformed
-        // TODO add your handling code here:
-        for (WheelPanelListener wheelPanelListener : listeners) {
-            wheelPanelListener.valueChanged(new WheelPanelEvent(this));
-        }
-    }//GEN-LAST:event_nameTextFieldActionPerformed
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private org.jdesktop.swingx.JXButton closeButton;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSpinner jSpinner1;
     private javax.swing.JSpinner jSpinner10;
     private javax.swing.JSpinner jSpinner11;

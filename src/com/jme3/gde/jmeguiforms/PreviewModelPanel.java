@@ -23,8 +23,6 @@ import org.jdesktop.swingx.JXPanel;
  */
 public class PreviewModelPanel extends JXPanel {
 
-    private boolean wireframe;
-
     /** Creates new form PreviewModelBeanForm */
     public PreviewModelPanel() {
         initComponents();
@@ -47,9 +45,12 @@ public class PreviewModelPanel extends JXPanel {
             ((PhysicsCollisionObject) node).attachDebugShape(
                     SceneApplication.getApplication().getAssetManager());
         }
+        /**
+         * recursion
+         */
         for (Spatial spatial : node.getChildren()) {
             if (spatial instanceof Node) {
-                attachDebugShape(node);
+                attachDebugShape((Node)spatial);
             }
         }
     }
@@ -91,6 +92,8 @@ public class PreviewModelPanel extends JXPanel {
             }
         });
         jToolBar1.add(jToggleButton1);
+        jToggleButton1.getAccessibleContext().setAccessibleName(org.openide.util.NbBundle.getMessage(PreviewModelPanel.class, "PreviewModelPanel.jToggleButton1.AccessibleContext.accessibleName")); // NOI18N
+        jToggleButton1.getAccessibleContext().setAccessibleDescription(org.openide.util.NbBundle.getMessage(PreviewModelPanel.class, "PreviewModelPanel.jToggleButton1.AccessibleContext.accessibleDescription")); // NOI18N
 
         jXButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/jme3/gde/jmeguiforms/icons/+zoom.png"))); // NOI18N
         jXButton1.setText(org.openide.util.NbBundle.getMessage(PreviewModelPanel.class, "PreviewModelPanel.jXButton1.text")); // NOI18N
@@ -103,6 +106,8 @@ public class PreviewModelPanel extends JXPanel {
             }
         });
         jToolBar1.add(jXButton1);
+        jXButton1.getAccessibleContext().setAccessibleName(org.openide.util.NbBundle.getMessage(PreviewModelPanel.class, "PreviewModelPanel.jXButton1.AccessibleContext.accessibleName")); // NOI18N
+        jXButton1.getAccessibleContext().setAccessibleDescription(org.openide.util.NbBundle.getMessage(PreviewModelPanel.class, "PreviewModelPanel.jXButton1.AccessibleContext.accessibleDescription")); // NOI18N
 
         jXButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/jme3/gde/jmeguiforms/icons/-zoom.png"))); // NOI18N
         jXButton2.setText(org.openide.util.NbBundle.getMessage(PreviewModelPanel.class, "PreviewModelPanel.jXButton2.text")); // NOI18N
@@ -115,6 +120,8 @@ public class PreviewModelPanel extends JXPanel {
             }
         });
         jToolBar1.add(jXButton2);
+        jXButton2.getAccessibleContext().setAccessibleName(org.openide.util.NbBundle.getMessage(PreviewModelPanel.class, "PreviewModelPanel.jXButton2.AccessibleContext.accessibleName")); // NOI18N
+        jXButton2.getAccessibleContext().setAccessibleDescription(org.openide.util.NbBundle.getMessage(PreviewModelPanel.class, "PreviewModelPanel.jXButton2.AccessibleContext.accessibleDescription")); // NOI18N
 
         jXButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/jme3/gde/jmeguiforms/icons/rotate-right.png"))); // NOI18N
         jXButton3.setText(org.openide.util.NbBundle.getMessage(PreviewModelPanel.class, "PreviewModelPanel.jXButton3.text")); // NOI18N
@@ -127,6 +134,8 @@ public class PreviewModelPanel extends JXPanel {
             }
         });
         jToolBar1.add(jXButton3);
+        jXButton3.getAccessibleContext().setAccessibleName(org.openide.util.NbBundle.getMessage(PreviewModelPanel.class, "PreviewModelPanel.jXButton3.AccessibleContext.accessibleName")); // NOI18N
+        jXButton3.getAccessibleContext().setAccessibleDescription(org.openide.util.NbBundle.getMessage(PreviewModelPanel.class, "PreviewModelPanel.jXButton3.AccessibleContext.accessibleDescription")); // NOI18N
 
         jXButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/jme3/gde/jmeguiforms/icons/rotate-left.png"))); // NOI18N
         jXButton4.setText(org.openide.util.NbBundle.getMessage(PreviewModelPanel.class, "PreviewModelPanel.jXButton4.text")); // NOI18N
@@ -139,6 +148,8 @@ public class PreviewModelPanel extends JXPanel {
             }
         });
         jToolBar1.add(jXButton4);
+        jXButton4.getAccessibleContext().setAccessibleName(org.openide.util.NbBundle.getMessage(PreviewModelPanel.class, "PreviewModelPanel.jXButton4.AccessibleContext.accessibleName")); // NOI18N
+        jXButton4.getAccessibleContext().setAccessibleDescription(org.openide.util.NbBundle.getMessage(PreviewModelPanel.class, "PreviewModelPanel.jXButton4.AccessibleContext.accessibleDescription")); // NOI18N
 
         jXButton6.setText(org.openide.util.NbBundle.getMessage(PreviewModelPanel.class, "PreviewModelPanel.jXButton6.text")); // NOI18N
         jXButton6.setFocusable(false);
@@ -150,6 +161,7 @@ public class PreviewModelPanel extends JXPanel {
             }
         });
         jToolBar1.add(jXButton6);
+        jXButton6.getAccessibleContext().setAccessibleDescription(org.openide.util.NbBundle.getMessage(PreviewModelPanel.class, "PreviewModelPanel.jXButton6.AccessibleContext.accessibleDescription")); // NOI18N
 
         javax.swing.GroupLayout offPanelLayout = new javax.swing.GroupLayout(offPanel);
         offPanel.setLayout(offPanelLayout);

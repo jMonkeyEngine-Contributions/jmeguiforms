@@ -12,7 +12,7 @@ public interface WheelPanelListener {
 
     public void valueChanged(WheelPanelEvent e);
 
-    public void loadAssetActionPerformed(WheelPanelEvent e);
+    public void loadSpatialActionPerformed(WheelPanelEvent e);
 
     public void closeActionPerformed(WheelPanelEvent e);
 }
