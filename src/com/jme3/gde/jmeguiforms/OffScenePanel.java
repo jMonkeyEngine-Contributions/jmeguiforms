@@ -64,7 +64,9 @@ public class OffScenePanel extends com.jme3.gde.core.scene.OffScenePanel {
 
     public void cleanup() {
         super.cleanup();
-        processor.cleanup();
+        if (processor != null) {
+            processor.cleanup();
+        }
     }
 
     /** This method is called from within the constructor to
