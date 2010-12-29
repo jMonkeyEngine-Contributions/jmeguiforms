@@ -13,6 +13,7 @@ package com.jme3.gde.jmeguiforms;
 import com.jme3.bullet.collision.PhysicsCollisionObject;
 import com.jme3.gde.core.scene.SceneApplication;
 import com.jme3.math.Vector3f;
+import com.jme3.renderer.Camera;
 import com.jme3.scene.Node;
 import com.jme3.scene.Spatial;
 import org.jdesktop.swingx.JXPanel;
@@ -30,6 +31,10 @@ public class PreviewModelPanel extends JXPanel {
 
     public void startPreview() {
         offPanel.startPreview();
+    }
+
+    public void stopPreview() {
+        offPanel.stopPreview();
     }
 
     public void attach(Spatial spat) {
@@ -50,9 +55,45 @@ public class PreviewModelPanel extends JXPanel {
          */
         for (Spatial spatial : node.getChildren()) {
             if (spatial instanceof Node) {
-                attachDebugShape((Node)spatial);
+                attachDebugShape((Node) spatial);
             }
         }
+    }
+
+    public void detachDebugShape(Node node) {
+        if (node instanceof PhysicsCollisionObject) {
+            ((PhysicsCollisionObject) node).detachDebugShape();
+        }
+        /**
+         * recursion
+         */
+        for (Spatial spatial : node.getChildren()) {
+            if (spatial instanceof Node) {
+                detachDebugShape((Node) spatial);
+            }
+        }
+    }
+
+    public void setZoomable(boolean zoomable) {
+        jXButton1.setEnabled(zoomable);
+        jXButton2.setEnabled(zoomable);
+    }
+
+    public void setRotatable(boolean rotatable) {
+        jXButton3.setEnabled(rotatable);
+        jXButton4.setEnabled(rotatable);
+    }
+
+    public boolean isZoomable() {
+        return jXButton1.isEnabled() && jXButton2.isEnabled();
+    }
+
+    public boolean isRotatable() {
+        return jXButton3.isEnabled() && jXButton4.isEnabled();
+    }
+
+    public Camera getCam() {
+        return offPanel.getCamera();
     }
 
     public void cleanup() {
@@ -74,7 +115,7 @@ public class PreviewModelPanel extends JXPanel {
         jXButton2 = new org.jdesktop.swingx.JXButton();
         jXButton3 = new org.jdesktop.swingx.JXButton();
         jXButton4 = new org.jdesktop.swingx.JXButton();
-        jXButton6 = new org.jdesktop.swingx.JXButton();
+        jToggleButton2 = new javax.swing.JToggleButton();
         offPanel = new com.jme3.gde.jmeguiforms.OffScenePanel();
 
         jToolBar1.setRollover(true);
@@ -151,17 +192,16 @@ public class PreviewModelPanel extends JXPanel {
         jXButton4.getAccessibleContext().setAccessibleName(org.openide.util.NbBundle.getMessage(PreviewModelPanel.class, "PreviewModelPanel.jXButton4.AccessibleContext.accessibleName")); // NOI18N
         jXButton4.getAccessibleContext().setAccessibleDescription(org.openide.util.NbBundle.getMessage(PreviewModelPanel.class, "PreviewModelPanel.jXButton4.AccessibleContext.accessibleDescription")); // NOI18N
 
-        jXButton6.setText(org.openide.util.NbBundle.getMessage(PreviewModelPanel.class, "PreviewModelPanel.jXButton6.text")); // NOI18N
-        jXButton6.setFocusable(false);
-        jXButton6.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jXButton6.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        jXButton6.addActionListener(new java.awt.event.ActionListener() {
+        jToggleButton2.setText(org.openide.util.NbBundle.getMessage(PreviewModelPanel.class, "PreviewModelPanel.jToggleButton2.text")); // NOI18N
+        jToggleButton2.setFocusable(false);
+        jToggleButton2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jToggleButton2.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jToggleButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jXButton6ActionPerformed(evt);
+                jToggleButton2ActionPerformed(evt);
             }
         });
-        jToolBar1.add(jXButton6);
-        jXButton6.getAccessibleContext().setAccessibleDescription(org.openide.util.NbBundle.getMessage(PreviewModelPanel.class, "PreviewModelPanel.jXButton6.AccessibleContext.accessibleDescription")); // NOI18N
+        jToolBar1.add(jToggleButton2);
 
         javax.swing.GroupLayout offPanelLayout = new javax.swing.GroupLayout(offPanel);
         offPanel.setLayout(offPanelLayout);
@@ -215,18 +255,22 @@ public class PreviewModelPanel extends JXPanel {
         offPanel.rotateCamera(Vector3f.UNIT_Y.clone(), -.1f);
     }//GEN-LAST:event_jXButton4ActionPerformed
 
-    private void jXButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jXButton6ActionPerformed
+    private void jToggleButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton2ActionPerformed
         // TODO add your handling code here:
-        attachDebugShape(offPanel.getRootNode());
-    }//GEN-LAST:event_jXButton6ActionPerformed
+        if (jToggleButton2.isSelected()) {
+            attachDebugShape(offPanel.getRootNode());
+        } else {
+            detachDebugShape(offPanel.getRootNode());
+        }
+    }//GEN-LAST:event_jToggleButton2ActionPerformed
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JToggleButton jToggleButton1;
+    private javax.swing.JToggleButton jToggleButton2;
     private javax.swing.JToolBar jToolBar1;
     private org.jdesktop.swingx.JXButton jXButton1;
     private org.jdesktop.swingx.JXButton jXButton2;
     private org.jdesktop.swingx.JXButton jXButton3;
     private org.jdesktop.swingx.JXButton jXButton4;
-    private org.jdesktop.swingx.JXButton jXButton6;
     private com.jme3.gde.jmeguiforms.OffScenePanel offPanel;
     // End of variables declaration//GEN-END:variables
 }

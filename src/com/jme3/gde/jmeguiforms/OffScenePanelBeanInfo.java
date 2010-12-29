@@ -685,7 +685,7 @@ public class OffScenePanelBeanInfo extends SimpleBeanInfo {
             methods[METHOD_postQueue108].setDisplayName ( "" );
             methods[METHOD_preferredSize109] = new MethodDescriptor(java.awt.Container.class.getMethod("preferredSize", new Class[] {})); // NOI18N
             methods[METHOD_preferredSize109].setDisplayName ( "" );
-            methods[METHOD_preFrame110] = new MethodDescriptor(com.jme3.gde.core.scene.OffScenePanel.class.getMethod("preFrame", new Class[] {float.class})); // NOI18N
+            methods[METHOD_preFrame110] = new MethodDescriptor(com.jme3.gde.jmeguiforms.OffScenePanel.class.getMethod("preFrame", new Class[] {float.class})); // NOI18N
             methods[METHOD_preFrame110].setDisplayName ( "" );
             methods[METHOD_prepareImage111] = new MethodDescriptor(java.awt.Component.class.getMethod("prepareImage", new Class[] {java.awt.Image.class, java.awt.image.ImageObserver.class})); // NOI18N
             methods[METHOD_prepareImage111].setDisplayName ( "" );
