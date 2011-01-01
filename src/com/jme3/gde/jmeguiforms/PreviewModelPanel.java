@@ -24,17 +24,25 @@ import org.jdesktop.swingx.JXPanel;
  */
 public class PreviewModelPanel extends JXPanel {
 
+    private boolean isStarted;
+
     /** Creates new form PreviewModelBeanForm */
     public PreviewModelPanel() {
         initComponents();
     }
 
     public void startPreview() {
-        offPanel.startPreview();
+        if (!isStarted) {
+            offPanel.startPreview();
+        }
+        isStarted = true;
     }
 
     public void stopPreview() {
-        offPanel.stopPreview();
+        if (isStarted) {
+            offPanel.stopPreview();
+        }
+        isStarted = false;
     }
 
     public void attach(Spatial spat) {
