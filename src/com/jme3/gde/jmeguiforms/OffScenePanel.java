@@ -62,14 +62,6 @@ public class OffScenePanel extends com.jme3.gde.core.scene.OffScenePanel {
         return processor;
     }
 
-    @Override
-    public void preFrame(float f) {
-        super.preFrame(f);
-        if (SceneApplication.getApplication().getInputManager() != null) {
-            SceneApplication.getApplication().getInputManager().update(f);
-        }
-    }
-
     public void cleanup() {
         super.cleanup();
         if (processor != null) {

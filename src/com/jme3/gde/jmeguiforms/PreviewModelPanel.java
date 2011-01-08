@@ -10,12 +10,13 @@
  */
 package com.jme3.gde.jmeguiforms;
 
-import com.jme3.bullet.collision.PhysicsCollisionObject;
+import com.jme3.bullet.nodes.PhysicsBaseNode;
 import com.jme3.gde.core.scene.SceneApplication;
 import com.jme3.math.Vector3f;
 import com.jme3.renderer.Camera;
 import com.jme3.scene.Node;
 import com.jme3.scene.Spatial;
+import java.util.concurrent.Callable;
 import org.jdesktop.swingx.JXPanel;
 
 /**
@@ -53,9 +54,19 @@ public class PreviewModelPanel extends JXPanel {
         offPanel.detach(spat);
     }
 
-    public void attachDebugShape(Node node) {
-        if (node instanceof PhysicsCollisionObject) {
-            ((PhysicsCollisionObject) node).attachDebugShape(
+    private void attachDebugShapes(final Node rootNode) {
+        SceneApplication.getApplication().enqueue(new Callable() {
+
+            public Object call() throws Exception {
+                doAttachDebugShapes(rootNode);
+                return null;
+            }
+        });
+    }
+
+    private void doAttachDebugShapes(Node node) {
+        if (node instanceof PhysicsBaseNode) {
+            ((PhysicsBaseNode) node).attachDebugShape(
                     SceneApplication.getApplication().getAssetManager());
         }
         /**
@@ -63,21 +74,31 @@ public class PreviewModelPanel extends JXPanel {
          */
         for (Spatial spatial : node.getChildren()) {
             if (spatial instanceof Node) {
-                attachDebugShape((Node) spatial);
+                doAttachDebugShapes((Node) spatial);
             }
         }
     }
 
-    public void detachDebugShape(Node node) {
-        if (node instanceof PhysicsCollisionObject) {
-            ((PhysicsCollisionObject) node).detachDebugShape();
+    private void detachDebugShapes(final Node rootNode) {
+        SceneApplication.getApplication().enqueue(new Callable() {
+
+            public Object call() throws Exception {
+                doDetachDebugShapes(rootNode);
+                return null;
+            }
+        });
+    }
+
+    private void doDetachDebugShapes(Node node) {
+        if (node instanceof PhysicsBaseNode) {
+            ((PhysicsBaseNode) node).detachDebugShape();
         }
         /**
          * recursion
          */
         for (Spatial spatial : node.getChildren()) {
             if (spatial instanceof Node) {
-                detachDebugShape((Node) spatial);
+                doDetachDebugShapes((Node) spatial);
             }
         }
     }
@@ -240,7 +261,13 @@ public class PreviewModelPanel extends JXPanel {
 
     private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
         // TODO add your handling code here:
-        offPanel.enableWireFrame(jToggleButton1.isSelected());
+        SceneApplication.getApplication().enqueue(new Callable() {
+
+            public Object call() throws Exception {
+                offPanel.enableWireFrame(jToggleButton1.isSelected());
+                return null;
+            }
+        });
     }//GEN-LAST:event_jToggleButton1ActionPerformed
 
     private void jXButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jXButton1ActionPerformed
@@ -266,9 +293,9 @@ public class PreviewModelPanel extends JXPanel {
     private void jToggleButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton2ActionPerformed
         // TODO add your handling code here:
         if (jToggleButton2.isSelected()) {
-            attachDebugShape(offPanel.getRootNode());
+            attachDebugShapes(offPanel.getRootNode());
         } else {
-            detachDebugShape(offPanel.getRootNode());
+            detachDebugShapes(offPanel.getRootNode());
         }
     }//GEN-LAST:event_jToggleButton2ActionPerformed
     // Variables declaration - do not modify//GEN-BEGIN:variables
